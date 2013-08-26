@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+<title>events</title>
+<link type="text/css" rel="stylesheet" rev="stylesheet" href="style/style.css" media="all"></link>
+<link type="text/css" rel="stylesheet" rev="stylesheet" href="style/SyntaxHighlighter.css" media="all"></link>
+<link type="text/css" rel="stylesheet" rev="stylesheet" href="style/grid.debug.css" media="all"></link>
+<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="js/template.js"></script>
+<script type="text/javascript" src="js/jquery.extgrid.js"></script>
+<script type="text/javascript" src="js/SyntaxHighlighter.js"></script>
+</head>
+<body>
+<div id="content">
+	<h2>事件</h2>
+	<div class="delta dotte">
+		<pre name="code" class="javascript">
+onStart:self.fireEvent("onStart",self,[opt]);
+onFinish : self.fireEvent('onFinish',self);
+onBeforeLoad : self.fireEvent('onBeforeLoad',self,[opt.queryParams]);//调用远程数据开始 ，如果返回false讲取消本次请1求
+onLoadSuccess : self.fireEvent('onLoadSuccess',self,[data,successBack]);//调用远程数据成功1
+onLoadError : self.fireEvent('onLoadError',self,[xmlHttp.responseText,errorBack,xmlHttp]);//调用远程数据失败1
+onClickRow : self.fireEvent('onClickRow',self,[this,rowId,rowData,e]);//this:当前tr  返回false 停止事件传播
+onColumnOver : self.fireEvent("onColumnOver",self,[this,e]);
+onColumnOut : self.fireEvent("onColumnOut",self,[this,e]);
+onOverRow : self.fireEvent("onOverRow",self,[rowId,e])//当用户mouseover row
+onOutRow : self.fireEvent("onOutRow",self,[rowId,e]),//当用户mouseout row
+onDblClickRow : self.fireEvent('onDblClickRow',self,[this,rowId,rowData,e]);//this:当前tr  返回false 停止事件传播
+onClickCell : self.fireEvent('onClickCell',self,[this,rowId,field,value,e]);//this:当前div.cell  返回false 停止事件传播
+onDblClickCell : self.fireEvent('onDblClickCell',self,[this,rowId,field,value,e]);//this:当前div.cell  返回false 停止事件传播
+onSortColumn : self.fireEvent("onSortColumn",self,[field]);//返回false 停止排序
+onResizeColumnStart : opt.self.fireEvent('onResizeColumnStart',opt.self,[this,opt,e]);//this移动滚动条,返回false 停止
+onResizeColumn : opt.self.fireEvent('onResizeColumn',opt.self,[opt,e]);//当用户调整列的尺寸时触发 返回false取消移动
+onResizeColumnStop : self.fireEvent('onResizeColumnStop',self,[cfg]);//返回false取消移动
+onSelect : self.fireEvent('onSelect',self,[obj,rowId,rowData]);//obj:tr(s) 返回false取消选中
+onUnselect : self.fireEvent('onUnselect',self,[obj,rowId,rowData]);//obj:tr(s) 返回false不取消选中
+onSelectAll : self.fireEvent('onSelectAll',self,[]);//返回false不选择
+onUnselectAll : self.fireEvent('onUnselectAll',self,[]);//返回false不取消选择
+onHeaderContextMenu :self.fireEvent('onHeaderContextMenu',self,[this,e]);//当 datagrid 的头部被右键单击时触发
+onHeaderCreate : self.fireEvent('onHeaderCreate',self,[]);//当 grid-header 创建完成时调用
+onToolBarCreate: self.fireEvent('onToolBarCreate',self,[self.configs.views['toolbar'],opt.toolBars]);//工具栏创建后调用
+onRowContextMenu : self.fireEvent('onRowContextMenu',self,[this,rowId,rowData,e]);//this:当前tr  当右键点击行时触发
+onBeforeRefresh : self.fireEvent('onBeforeRefresh',self);
+onRefresh : self.fireEvent('onRefresh',self);
+onChangePageSize : self.fireEvent('onChangePageSize',self,[pageSize]); //返回false不执行
+onShowGriding : self.fireEvent('onShowGriding',self,[i,data]);// grid数据显示中的时候调用
+onShowGrid : self.fireEvent('onShowGrid',self,[]);// grid 每次刷新都会调用
+onBeforeShowGrid :self.fireEvent('onBeforeShowGrid',self,[]);
+onGetData :self.fireEvent('onGetData',self,[opt.data]);// grid 数据变动都会调用
+onPagerCreate : self.fireEvent("onPagerCreate",self,[opt.views['pager']]);
+onSelectPage : self.fireEvent('onSelectPage',self,[pageSize]);//返回false不执行
+onClickRowNumber : self.fireEvent('onClickRowNumber',self,[rid,e]);
+onSearch : self.fireEvent('onSearch',self,[_data]);
+onExpandRow : self.fireEvent('onExpandRow',self,[rowId]);
+onBeforeLockColumn:self.fireEvent('onBeforeLockColumn',self,[field]);//返回false取消执行
+onBeforeLockRow:self.fireEvent('onBeforeLockRow',self,[field]);//返回false取消执行
+onAfterLockColumn :  self.fireEvent('onAfterLockColumn',self,[field]);
+onAfterLockRow : self.fireEvent('onAfterLockRow',self,[rowId]);
+onUnlockColumn : self.fireEvent('onUnlockColumn',self,[field]);//返回false取消执行
+onUnlockRow : self.fireEvent('onUnlockRow',self,[field]);//返回false取消执行
+onViewSizeChange : self.fireEvent("onViewSizeChange",self,[]);//视图大小改变
+onSizeChange : self.fireEvent("onSizeChange",self,[width,height]);//改变gird大小
+onScroll : self.fireEvent("onScroll",self,[]);
+onDataChange :self.fireEvent("onDataChange",self,[datas]);//数据有变更
+onCellEdit : self.fireEvent('onCellEdit',self,[t,rid,field,rowData]);//t:div.cell 单元格数据有变更调用
+onAdd : self.fireEvent("onAdd",self,[datas,true]);//添加数据
+onUpdate : $.noop,//更新数据
+onDelete : $.noop,//删除数据
+onAjaxAdd : self.fireEvent("onAjaxAdd",self,[datas,function(){self.onDataChange(datas);}]);//远程添加数据 需要自定义
+onAjaxUpdate : $.noop,//远程更新数据 需要自定义
+onAjaxDelete : $.noop,//远程删除数据 需要自定义
+onColumnMove :self.fireEvent("onColumnMove",opt.self,[opt]);
+onColumnMoving : opt.self.fireEvent("onColumnMoving",opt.self,[opt]);//返回false不执行
+		</pre>
+	</div>
+</div>
+<script type="text/javascript">
+$(window).ready(function(){
+	dp.SyntaxHighlighter.ClipboardSwf = 'js/clipboard.swf';
+	dp.SyntaxHighlighter.HighlightAll('code');
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+<title>toolBars</title>
+<link type="text/css" rel="stylesheet" rev="stylesheet" href="style/style.css" media="all"></link>
+<link type="text/css" rel="stylesheet" rev="stylesheet" href="style/SyntaxHighlighter.css" media="all"></link>
+<link type="text/css" rel="stylesheet" rev="stylesheet" href="style/grid.debug.css" media="all"></link>
+<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="js/template.js"></script>
+<script type="text/javascript" src="js/jquery.extgrid.js"></script>
+<script type="text/javascript" src="js/SyntaxHighlighter.js"></script>
+</head>
+<body>
+<style type="text/css">
+.icon-add{
+	background:url('style/images/add.png') no-repeat center center;
+}
+.icon-edit{
+	background:url('style/images/save.png') no-repeat center center;
+}
+.icon-del{
+	background:url('style/images/save.png') no-repeat center center;
+}
+</style>
+<div id="content">
+	<h2>Grid工具栏:toolBars</h2>
+	<div class="delta">
+		<strong>默认为false,不显示 | [object1,object2,object3,...]<br>
+			object=>{text : '',cls : '',callBack : $.noop,disabled:false}<br>
+			可修改_toolItem作为默认输入<br>
+			_toolItem:{text : '',cls : '',callBack : $.noop,disabled:false}
+		</strong>
+	</div>
+	<div id="demo" style="margin-top:5px;">
+		<div id="demo1" class="demo" style="height:300px;"></div>
+	</div>
+	<div class="delta dotte">
+		<strong>CSS:</strong>
+		<pre name="code" class="css">
+.icon-add{
+	background:url('style/images/add.png') no-repeat center center;
+}
+.icon-edit{
+	background:url('style/images/save.png') no-repeat center center;
+}
+.icon-del{
+	background:url('style/images/save.png') no-repeat center center;
+}
+		</pre>
+		<strong>HTML:</strong>
+		<pre name="code" class="html">
+<div id="demo1" class="demo" style="height:300px;"></div>
+		</pre>
+		<strong>Script:</strong>
+		<pre name="code" class="javascript">
+var data = [
+	{id:1,title:'test1',content:'内容1',path:'base1.html'},
+	{id:2,title:'test2',content:'内容2',path:'base2.html'},
+	{id:3,title:'test3',content:'内容3',path:'base3.html'},
+	{id:4,title:'test4',content:'内容4',path:'base4.html'}
+];
+
+
+function getCfg(){
+	var tools = [
+		{text:'添加',cls:'icon-add',callBack:function(){var grid = this; alert("添加");}},
+		{text:'修改',cls:'icon-edit',callBack:function(){var grid = this; alert("修改");}},
+		"|",//可以是 "," "-"
+		{text:'删除',cls:'icon-del',callBack:function(t){
+			var grid = this;
+			if( $(t).hasClass("l-btn-disabled") ) {
+				alert("当前按钮已经被禁止");
+			}
+		},disabled:true},
+		"|",
+		"<div>当前是按钮栏</div>"
+	];
+	var columns = [
+		{field:'id',title:'ID',width:30,fitColumn:false},
+		{field:'title',title:'标题',width:60},
+		{field:'content',title:'内容',width:200},
+		{field:'path',title:'文件名',width:100}
+	];
+	var options = {
+		title : 'gird工具栏',
+		data : data,
+		toolBars :　tools,
+		columns : columns
+	}
+	return options;
+}
+var grid1;
+function create(){
+	var opt1 = getCfg();
+	grid1 = $("#demo1").extgrid(opt1);
+}
+$(function(){
+	create();
+});
+		</pre>
+	</div>
+</div>
+<script type="text/javascript">
+var data = [
+	{id:1,title:'test1',content:'内容1',path:'base1.html'},
+	{id:2,title:'test2',content:'内容2',path:'base2.html'},
+	{id:3,title:'test3',content:'内容3',path:'base3.html'},
+	{id:4,title:'test4',content:'内容4',path:'base4.html'}
+];
+
+
+function getCfg(){
+	var tools = [
+		{text:'添加',cls:'icon-add',callBack:function(){var grid = this; alert("添加");}},
+		{text:'修改',cls:'icon-edit',callBack:function(){var grid = this; alert("修改");}},
+		"|",//可以是 "," "-"
+		{text:'删除',cls:'icon-del',callBack:function(t){
+			var grid = this;
+			if( $(t).hasClass("l-btn-disabled") ) {
+				alert("当前按钮已经被禁止");
+			}
+		},disabled:true},
+		"|",
+		"<div>当前是按钮栏</div>"
+	];
+	var columns = [
+		{field:'id',title:'ID',width:30,fitColumn:false},
+		{field:'title',title:'标题',width:60},
+		{field:'content',title:'内容',width:200},
+		{field:'path',title:'文件名',width:100}
+	];
+	var options = {
+		title : 'gird工具栏',
+		data : data,
+		toolBars :　tools,
+		columns : columns
+	}
+	return options;
+}
+var grid1,grid2;
+function create(){
+	var opt1 = getCfg();
+	grid1 = $("#demo1").extgrid(opt1);
+}
+$(function(){
+	create();
+});
+$(window).ready(function(){
+	dp.SyntaxHighlighter.ClipboardSwf = 'js/clipboard.swf';
+	dp.SyntaxHighlighter.HighlightAll('code');
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+<title>configs</title>
+<link type="text/css" rel="stylesheet" rev="stylesheet" href="style/style.css" media="all"></link>
+<link type="text/css" rel="stylesheet" rev="stylesheet" href="style/SyntaxHighlighter.css" media="all"></link>
+<link type="text/css" rel="stylesheet" rev="stylesheet" href="style/grid.debug.css" media="all"></link>
+<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="js/template.js"></script>
+<script type="text/javascript" src="js/jquery.extgrid.js"></script>
+<script type="text/javascript" src="js/SyntaxHighlighter.js"></script>
+</head>
+<body>
+<div id="content">
+	<h2>参数一览表</h2>
+	<div class="delta dotte">
+		<pre name="code" class="javascript">
+var _opt = {
+				self : null,
+				init : $.noop,//初始化调用
+				title : '',//为空不显示标题
+				iconCls : '',//datagrid 标题的icon样式
+				toolBars : false,// [{'text':'添加',cls:'样式',callBack,disabled:false}]
+				_toolItem : {text : '',cls : '',callBack : $.noop,disabled:false},//tool 属性
+				ltText : '',//左上角单元格内容
+				rowNumbersWidth : false,//左侧数字列表 一般设为24px
+				rowNumbersExpand: false,//默认是 i++
+				rowNumbers2Row : true,//开启当rowNumbers2Row click的时候 选择当前行
+				rowTpl : '',//grid 自定义行模板 可以是选择器 模版类型不能出现类似 abc<div>ef</div>a
+				headerTpl : '',//自定义 header 列模板 可以是选择器 模版类型不能出现类似 abc<div>ef</div>a
+				containerCss : 'datagrid-container-border',
+				border : true,
+				leftBorder : 1, //gird边框大小 注意grid不会生成边框，而是根据你自己在css中定义的边框大小， 系统默认的是1px
+				rightBorder : 1,
+				topBorder : 1,
+				bottomBorder : 1,
+				padding : $.dataGrid.padding,//单元格padding数值
+				width : 700,
+				height : 250,
+				checkBox : false,//是否显示checkbox列 开启后 ck 将是系统列
+				checkBoxWidth : '20px',
+				checkBoxTitle : '<input type="checkbox">',
+				checkBoxFit : false,
+				editColumn : false,//是否显示edit列 [{'text':'添加',cls:'样式',callBack,disabled:false}]  开启后 ed 将是系统列
+				editColumnTitle : '操作',
+				editColumnFit : true,
+				editCellW : 60,//每个操作按钮的大小
+				columns : [],//
+				moveColumnTm : 500,//按下多少秒后开始移动列
+				moveColumns : true,
+				_columnMetaData : {
+					field : '',
+					title : '',
+					width : '120px',//默认的列宽
+					align : 'left',
+					_expand : false,//自定义列内容
+					callBack : $.noop,
+					hcls : '',//header cell自定义css
+					bcls : '',//body cell自定义css
+					fcls : '',//footer cell自定义css
+					sortable : false, 
+					textLimit : false,//当处理大数据的时候 性能消耗比较厉害，
+					fitColumn : true,
+					disabled : false//当前列不可用
+				},
+				textLimit : false,//文字溢出总开关
+				textLimitDef : '...',
+				groupBy : false,//'year'  
+				groupList : false,//['2012','2013','2014']
+				groupListCallBack : $.noop,//group row的回调 
+				_groupListData : [],//数据缓存
+				_sTop : 0,//初始滚动位置
+				_sLeft : 0,
+				_lTime : 50,//数据显示后 相隔这个时间继续显示下一个
+				_lSize : 50,//把数据分每批50条显示
+				fitColumns : true,//移动列总开关
+				data : [],//列表数据 含有_expand的将作为扩展列 如果有 _openExpand=true 则会自动展开
+				pk : '',//主键名称
+				lockRows : [],//已经锁定的行
+				lockColumns : [],//已经锁定的列
+				hideColumns : [],//已经隐藏的列
+				selectRows : [],//已经选中的行
+				isCreate : false,//废弃
+				isShow : false,
+				views : {},
+				method : 'post',
+				url : '',
+				loadMsg : '加载中,请稍后...',
+				cache : true,//缓存
+				cacheData : [],
+				pagination : false,//pager栏目
+				pagerToolBar : false,//pager栏目 工具栏
+				pagerMsg : '当前显示 {start} 到 {end} 条，共 {total} 条',
+				pageNumber : 1,
+				pageSize : 10,
+				dataType : 'json',
+				pageList : [10,20,30,40,50],
+				queryParams : {},
+				singleSelect : false,//是否可以多选
+				sortName : '',
+				sortOrder : 'asc',
+				rowStyler : "",//行style 字符串作为 class function(rowid,rowdata)
+				rowCallBack : $.noop,
+				tpl : {},//自定义模板  可参考_Tpl
+				methodCall : {},//内部函数的回调函数
+				template : template,//模板引擎对象
+				isEscape : false,//是否开启模板转义
+				noop : $.noop,
+				events : {
+					onStart : $.noop,
+					onFinish : $.noop,
+					onBeforeLoad : $.noop,
+					onLoadSuccess : $.noop,
+					onLoadError : $.noop,
+					onClickRow : $.noop,
+					onColumnOver : $.noop,
+					onColumnOut : $.noop,
+					onOverRow : $.noop,
+					onOutRow : $.noop,
+					onDblClickRow : $.noop,
+					onClickCell : $.noop,
+					onDblClickCell : $.noop,
+					onSortColumn : $.noop,
+					onResizeColumnStart : $.noop,
+					onResizeColumn : $.noop,
+					onResizeColumnStop : $.noop,
+					onSelect : $.noop,
+					onUnselect : $.noop,
+					onSelectAll : $.noop,
+					onUnselectAll : $.noop,
+					onHeaderContextMenu : $.noop,
+					onHeaderCreate : $.noop,
+					onToolBarCreate: $.noop,
+					onRowContextMenu : $.noop,
+					onBeforeRefresh : $.noop,
+					onRefresh : $.noop,
+					onChangePageSize : $.noop,
+					onShowGriding : $.noop,
+					onShowGrid : $.noop,
+					onBeforeShowGrid : $.noop, 
+					onGetData : $.noop,
+					onPagerCreate : $.noop,
+					onSelectPage : $.noop,
+					onClickRowNumber : $.noop,
+					onSearch : $.noop,
+					onExpandRow : $.noop,
+					onLockColumn :  $.noop,
+					onBeforeLockColumn :  $.noop,
+					onAfterLockColumn :  $.noop,
+					onLockRow : $.noop,
+					onBeforeLockRow : $.noop,
+					onAfterLockRow : $.noop,
+					onUnlockColumn : $.noop,
+					onUnlockRow : $.noop,
+					onViewSizeChange : $.noop,
+					onSizeChange : $.noop,
+					onScroll : $.noop,
+					onDataChange : $.noop,
+					onCellEdit : $.noop,
+					onAdd : $.noop,
+					onUpdate : $.noop,
+					onDelete : $.noop,
+					onAjaxAdd : $.noop,
+					onAjaxUpdate : $.noop,
+					onAjaxDelete : $.noop,
+					onColumnMove : $.noop,
+					onColumnMoving : $.noop
+				}
+				
+			};
+_Tpl : {
+			'container' : '<div class="datagrid-container <%=(border?containerCss:"")%>" id="<%=id%>" style=" position:relative; overflow:hidden; width:<%=width%>px; height:<%=height%>px;"></div>',
+			'title' : '<div class="datagrid-title <%=iconCls%>" id="title_<%=id%>"><%=title%></div>',
+			'toolbar' : '<div class="datagrid-toolbar" id="toolbar_<%=id%>"></div>',
+			'grid' : '<div class="datagrid-view" id="view_<%=id%>" style="width:<%=width%>px; height:0px;"></div>',
+			'group_row' : '<tr id="<%=id%>-group-row-<%=gid%>"  datagrid-group-row-id="<%=gid%>" class="datagrid-group-row"><td style="width:<%=w%>px" colspan="<%=colspan%>"><div  class="datagrid-group-cell"><%=html%>(<%=num%>)</div></td></tr>',
+			'view1' : '<div class="datagrid-view1" id="view1_<%=id%>" style="width:<%=parseFloat(rowNumbersWidth)%>px;height:100%;">'
+							+'<div  class="datagrid-header" id="view1-datagrid-header-<%=id%>" style="width: 100%; z-index:40; position:relative;">'
+								+'<div class="datagrid-header-inner" id="view1-datagrid-header-inner-<%=id%>">'
+									+'<div class="datagrid-header-inner-wraper">'
+										+'<table class="datagrid-htable" id="view1-datagrid-header-inner-htable-<%=id%>" border="0" cellspacing="0" cellpadding="0">'
+											+'<tbody id="view1-datagrid-header-inner-htable-tbody-<%=id%>">'
+											+'</tbody>'
+										+'</table>'
+									+'</div>'
+								+'</div>'
+								+'<div class="datagrid-header-outer" id="view1-datagrid-header-outer-<%=id%>">'
+									+'<div class="datagrid-header-outer-wraper">'
+										+'<table class="datagrid-locktable" id="view1-datagrid-header-outer-locktable-<%=id%>" border="0" cellspacing="0" cellpadding="0">'
+											+'<tbody id="view1-datagrid-header-outer-locktable-tbody-<%=id%>">'
+											+'</tbody>'
+										+'</table>'
+									+'</div>'
+								+'</div>'
+							+'</div>'
+							+'<div class="datagrid-body-wrap" id="view1-datagrid-body-wrap-<%=id%>" style="width: 100%; height:0px; overflow:hidden;zoom:1; ">'
+								+'<div class="datagrid-body" id="view1-datagrid-body-<%=id%>" style="width: 100%;float:left;z-index:30;position:relative;">'
+									+'<table class="datagrid-btable" id="view1-datagrid-body-btable-<%=id%>" cellspacing="0" cellpadding="0" border="0">'
+										+'<tbody id="view1-datagrid-body-btable-tbody-<%=id%>">'
+										+'</tbody>'
+									+'</table>'
+								+'</div>'
+							+'</div>'
+							+'<div class="datagrid-footer" id="view1-datagrid-footer-<%=id%>" style="width: 100%; height:0px; overflow:hidden;position:relative;z-index:31;"></div>'
+						+'</div>',
+			'view2' : '<div class="datagrid-view2" id="view2_<%=id%>" style="width:0px;height:100%;">'
+							+'<div  class="datagrid-header" id="view2-datagrid-header-<%=id%>" style="width: 100%;">'
+								+'<div class="datagrid-header-inner" id="view2-datagrid-header-inner-<%=id%>">'
+									+'<div class="datagrid-header-inner-wraper">'
+										+'<table class="datagrid-htable" id="view2-datagrid-header-inner-htable-<%=id%>" border="0" cellspacing="0" cellpadding="0">'
+											+'<tbody id="view2-datagrid-header-inner-htable-tbody-<%=id%>">'
+											+'</tbody>'
+										+'</table>'
+									+'</div>'
+								+'</div>'
+								+'<div class="datagrid-header-outer" id="view2-datagrid-header-outer-<%=id%>">'
+									+'<div class="datagrid-header-outer-wraper">'
+										+'<table class="datagrid-locktable" id="view2-datagrid-header-outer-locktable-<%=id%>" border="0" cellspacing="0" cellpadding="0">'
+											+'<tbody id="view2-datagrid-header-outer-locktable-tbody-<%=id%>">'
+											+'</tbody>'
+										+'</table>'
+									+'</div>'	
+								+'</div>'
+							+'</div>'
+							+'<div class="datagrid-body" id="view2-datagrid-body-<%=id%>" style="width: 100%;height:0px;">'
+								+'<table class="datagrid-btable" id="view2-datagrid-body-btable-<%=id%>" cellspacing="0" cellpadding="0" border="0">'
+									+'<tbody id="view2-datagrid-body-btable-tbody-<%=id%>">'
+									+'</tbody>'
+								+'</table>'
+							+'</div>'
+							+'<div class="datagrid-footer" id="view2-datagrid-footer-<%=id%>" style="width: 100%; height:0px; overflow:hidden;"></div>'
+					+'</div>',
+			'pager' : '<div class="datagrid-pager pagination">'
+						+' <table cellspacing="0" cellpadding="0" border="0">'
+							+'<tbody>'
+								+'<tr>'
+									+'<td><select class="pagination-page-list">'
+									+'<% var s = ""; for(var i=0;i<pageList.length;i++) {%>'
+										+'<% if(pageList[i] == pageSize) {%>'
+										+'<% s="selected";%>'
+										+'<% } else {s="";} %>'
+									+'<option value="<%=pageList[i]%>" <%=s%> ><%=pageList[i]%></option>'
+									+'<% } %>'
+									+'</select></td><td><div class="pagination-btn-separator"></div></td>'
+									+'<td><a href="javascript:void(0)" class=" p-plain <%=(pageNumber <= 1 )?"p-btn-disabled":""%>"><span class="pagination-first  p-btn">&nbsp;</span></a></td>'
+									+'<td><a href="javascript:void(0)" class=" p-plain <%=(pageNumber <= 1 )?"p-btn-disabled":""%>"><span class="pagination-prev  p-btn">&nbsp;</span></a></td>'
+									+'<td><div class="pagination-btn-separator"></div></td>'
+									+'<td><span style="padding-left:6px;">第</span></td>'
+									+'<td><input class="pagination-num" type="text" value="<%=pageNumber%>" size="2"></td>'
+									+'<td><span style="padding-right:6px;">页 共 <%=pages%> 页</span></td>'
+									+'<td><div class="pagination-btn-separator"></div></td>'
+									+'<td><a href="javascript:void(0)" class=" p-plain <%=(pageNumber >= pages)?"p-btn-disabled":""%>"><span class="pagination-next p-btn">&nbsp;</span></a></td>'
+									+'<td><a href="javascript:void(0)" class=" p-plain <%=(pageNumber >= pages)?"p-btn-disabled":""%>"><span class="pagination-last p-btn ">&nbsp;</span></a></td>'
+									+'<td><div class="pagination-btn-separator"></div></td>'
+									+'<td><a href="javascript:void(0)" class=" p-plain"><span class="pagination-load p-btn">&nbsp;</span></a></td>'
+									+'<td id="pagination-toolbar-<%=id%>"></td>'
+								+'</tr>'
+							+'</tbody>'
+						+'</table>'
+						+'<div class="pagination-info"><%=pagerMsg%></div>'
+						+'<div style="clear:both;"></div>'
+					+'</div>',
+			'view1_header_inner_row' : '<tr class="datagrid-header-row">'
+											+'<td align="center" class="datagrid-td-rownumber" style=""><div class="datagrid-header-rownumber" style="width:<%=parseFloat(rowNumbersWidth)%>px;"><%=ltText%></div></td>'
+									   +'</tr>',	
+			'view1_header_outer_row' : '',	
+			'view2_header_inner_row' : '<tr class="datagrid-header-row">'
+											+'<% for(var i in fields) {%>'
+											+'<td field="<%=fields[i]["field"]%>" align="<%=fields[i]["align"]%>">'
+												+'<div class="datagrid-header-wrap" field="<%=fields[i]["field"]%>" >'
+													+'<div class="datagrid-cell <%=fields[i]["hcls"]%>"  style="width:<%=fields[i]["width"]%>">'
+														+'<span><%=fields[i]["title"]%></span>'
+														+'<span class="datagrid-sort-icon">&nbsp;</span>'
+													+'</div>'
+												+'</div>'
+											+'</td>'
+											+'<% } %>'
+										+'</tr>',
+			'view2_header_outer_row' : '',
+			'view1_row' : '<tr id="<%=id%>-view1-row-<%=i%>" <%=( typeof data["_groupid_"] != "undefined" ) ? "datagrid-group-id="+data["_groupid_"] : ""%> datagrid-row-index="<%=i%>" datagrid-row-select="0" class="datagrid-row datagrid-row-view1 <%=((i+1)%2 ? "datagrid-row-view1-single" : "datagrid-row-view1-double")%>">'
+						  		+'<td align="center" class="datagrid-td-rownumber"><div class="datagrid-cell-rownumber" style="width:<%=parseFloat(rowNumbersWidth)%>px;"><%var j = i%><%=(rowNumbersExpand === false ? ++j : opt.self.tpl(rowNumbersExpand,data))%></div></td>'
+						   +'</tr>',
+			'view2_row' : '<tr id="<%=id%>-row-<%=i%>" <%=( typeof data["_groupid_"] != "undefined" )? "datagrid-group-id="+data["_groupid_"] : ""%> datagrid-row-index="<%=i%>" datagrid-row-select="0" class="datagrid-row <%=((i+1)%2 ? "datagrid-row-single" : "datagrid-row-double")%>">'
+						   +'<% for(var j in fields) {%>'
+						   +'<% var field = fields[j]["field"];%>'
+						   		+'<td field="<%=fields[j]["field"]%>" align="<%=fields[j]["align"]%>">'
+										+'<div class="datagrid-cell datagrid-cell-c1-<%=fields[j]["field"]%> <%=fields[j]["bcls"]%>" style="width:<%=fields[j]["width"]%>;" ><%=fields[j]["_expand"] !== false ? opt.self.tpl(fields[j]["_expand"],data) : data[field]%></div>'
+								+'</td>'
+							+'<% } %>'
+							+'</tr>'
+		}
+		</pre>
+	</div>
+</div>
+<script type="text/javascript">
+$(window).ready(function(){
+	dp.SyntaxHighlighter.ClipboardSwf = 'js/clipboard.swf';
+	dp.SyntaxHighlighter.HighlightAll('code');
+});
+</script>
+</body>
+</html>

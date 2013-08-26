@@ -1,0 +1,496 @@
+/*grid容器*/
+.datagrid-container {
+font-size:12px;
+background:#FFFFFF;
+}
+.datagrid-container-border {
+	border:1px solid #95B8E7
+}
+/*grid标题*/
+.datagrid-title {
+  font-weight: bold;
+  color: #0E2D5F;
+  height: 16px;
+  line-height: 16px;
+  padding:5px;
+  position:relative;
+  border-bottom:1px solid #95B8E7;
+  
+  background-color: #E0ECFF;
+  background: -webkit-linear-gradient(top,#EFF5FF 0,#E0ECFF 100%);
+  background: -moz-linear-gradient(top,#EFF5FF 0,#E0ECFF 100%);
+  background: -o-linear-gradient(top,#EFF5FF 0,#E0ECFF 100%);
+  background: linear-gradient(to bottom,#EFF5FF 0,#E0ECFF 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#EFF5FF,endColorstr=#E0ECFF,GradientType=0);
+}
+/*grid工具栏*/
+.datagrid-toolbar {
+background-color: #efefef;
+  background: -webkit-linear-gradient(top,#F9F9F9 0,#efefef 100%);
+  background: -moz-linear-gradient(top,#F9F9F9 0,#efefef 100%);
+  background: -o-linear-gradient(top,#F9F9F9 0,#efefef 100%);
+  background: linear-gradient(to bottom,#F9F9F9 0,#efefef 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#F9F9F9,endColorstr=#efefef,GradientType=0);
+}
+.datagrid-toolbar {
+  height: auto;
+  padding: 1px 2px;
+  border-width: 0 0 1px 0;
+  border-style: solid;
+  border-color: #dddddd;
+}
+/*grid工具栏 按钮*/
+a.l-btn {
+  background-position: right 0;
+  text-decoration: none;
+  display: inline-block;
+  zoom: 1;
+  height: 24px;
+  padding-right: 18px;
+  cursor: pointer;
+  outline: none;
+}
+a.l-btn-plain {
+  padding-right: 5px;
+  border: 0;
+  padding: 1px 6px 1px 1px;
+}
+a.l-btn-disabled {
+  color: #ccc;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  cursor: default;
+}
+a.l-btn span.l-btn-left {
+  display: inline-block;
+  background-position: 0 -48px;
+  padding: 4px 0px 4px 18px;
+  line-height: 16px;
+  height: 16px;
+}
+a.l-btn-plain span.l-btn-left {
+  padding-left: 5px;
+}
+a.l-btn span span.l-btn-text {
+  display: inline-block;
+  vertical-align: baseline;
+  width: auto;
+  height: 16px;
+  line-height: 16px;
+  font-size: 12px;
+  padding: 0;
+  margin: 0;
+}
+a.l-btn span span.l-btn-icon-left {
+  padding: 0 0 0 20px;
+  background-position: left center;
+}
+a.l-btn span span.l-btn-icon-right {
+  padding: 0 20px 0 0;
+  background-position: right center;
+}
+a.l-btn span span span.l-btn-empty {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  width: 16px;
+}
+a:hover.l-btn {
+  background-position: right -24px;
+  outline: none;
+  text-decoration: none;
+}
+a:hover.l-btn span.l-btn-left {
+  background-position: 0 bottom;
+}
+a:hover.l-btn-plain {
+padding: 0px 5px 0px 0px;
+}
+a:hover.l-btn-disabled {
+  background-position: right 0;
+}
+a:hover.l-btn-disabled span.l-btn-left {
+  background-position: 0 -48px;
+}
+a.l-btn .l-btn-focus {
+  outline: #0000FF dotted thin;
+}
+a.l-btn {
+  color: #444;
+  background-image: url('images/linkbutton_bg.png');
+  background-repeat: no-repeat;
+  -moz-border-radius: 5px 5px 5px 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+a.l-btn span.l-btn-left {
+  background-image: url('images/linkbutton_bg.png');
+  background-repeat: no-repeat;
+}
+a.l-btn-plain,
+a.l-btn-plain span.l-btn-left {
+  background: transparent;
+  border: 0;
+  filter: none;
+}
+a:hover.l-btn-plain {
+  background: #eaf2ff;
+  color: #000000;
+  border: 1px solid #b7d2ff;
+  -moz-border-radius: 5px 5px 5px 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+a.l-btn-disabled,
+a:hover.l-btn-disabled {
+  color: #444;
+  filter: alpha(opacity=50);
+}
+a.l-btn-plain-disabled,
+a:hover.l-btn-plain-disabled {
+  background: transparent;
+  filter: alpha(opacity=50);
+}
+a.l-btn-selected,
+a:hover.l-btn-selected {
+  background-position: right -24px;
+}
+a.l-btn-selected span.l-btn-left,
+a:hover.l-btn-selected span.l-btn-left {
+  background-position: 0 bottom;
+}
+a.l-btn-plain-selected,
+a:hover.l-btn-plain-selected {
+  background: #ddd;
+}
+.datagrid-btn-separator {
+  float: left;
+  height: 24px;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #fff;
+  margin: 0px 1px; 
+}
+/*grid工具栏行按钮*/
+.datagrid-cell-edit a.l-btn { height:16px;}
+.datagrid-cell-edit a.l-btn span.l-btn-left  {
+ padding: 0px 0px 0px 5px;
+}
+.datagrid-cell-edit .datagrid-btn-separator { height: 18px;}
+.datagrid-cell-edit td { border:none !important;}
+
+/*grid 视图部分*/
+.datagrid-view {
+ position:relative; overflow:hidden;
+}
+.datagrid-view1 {
+ position: absolute; overflow:hidden; top:0px; left:0px;
+}
+.datagrid-view2 {
+ position: absolute; overflow:hidden; top:0px; right:0px;
+}
+
+.datagrid-row-view1 td.datagrid-td-rownumber {
+  background-color: #efefef;
+  background: -webkit-linear-gradient(top,#F9F9F9 0,#efefef 100%);
+  background: -moz-linear-gradient(top,#F9F9F9 0,#efefef 100%);
+  background: -o-linear-gradient(top,#F9F9F9 0,#efefef 100%);
+  background: linear-gradient(to bottom,#F9F9F9 0,#efefef 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#F9F9F9,endColorstr=#efefef,GradientType=0);
+}
+/*
+.datagrid-header{
+  background-color: #efefef;
+  background: -webkit-linear-gradient(top,#F9F9F9 0,#efefef 100%);
+  background: -moz-linear-gradient(top,#F9F9F9 0,#efefef 100%);
+  background: -o-linear-gradient(top,#F9F9F9 0,#efefef 100%);
+  background: linear-gradient(to bottom,#F9F9F9 0,#efefef 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#F9F9F9,endColorstr=#efefef,GradientType=0);
+}
+*/
+.datagrid-header {
+  height:24px;/*该属性 不重要 最终决定的是 .datagrid-header-row的height*/
+  overflow: hidden;
+}
+.datagrid-header-inner {
+  float: left;
+  width: 100%;
+  border-width: 0 0 1px 0;
+  border-style: solid;
+  border-color: #dddddd;
+  overflow:hidden;
+ /* zoom:1;*/
+}
+.datagrid-header-inner{
+  background-color: #efefef;
+  background: -webkit-linear-gradient(top,#F9F9F9 0,#efefef 100%);
+  background: -moz-linear-gradient(top,#F9F9F9 0,#efefef 100%);
+  background: -o-linear-gradient(top,#F9F9F9 0,#efefef 100%);
+  background: linear-gradient(to bottom,#F9F9F9 0,#efefef 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#F9F9F9,endColorstr=#efefef,GradientType=0);
+}
+/*.datagrid-header-inner-wraper { height:100%}*/
+.datagrid-header .datagrid-header-wrap { position:relative; width:100%;}
+
+.datagrid-header td,.datagrid-body td,.datagrid-footer td{
+  border-color: #ccc;
+  border-width: 0 1px 1px 0;
+  border-style: dotted;
+  margin: 0;
+  padding: 0;
+}
+.datagrid-header td{}
+.datagrid-body td{}
+.datagrid-footer td{}
+
+.datagrid-row ,.datagrid-row-expand { background: #FFFFFF;}
+
+.datagrid-header-check,
+.datagrid-cell-check {
+  padding: 0;
+  width: 27px;
+  height: 18px;
+  font-size: 1px;
+  text-align: center;
+  overflow: hidden;
+}
+.datagrid-header-check input,
+.datagrid-group-cell-check input,
+.datagrid-cell-check input {
+  margin: 0;
+  padding: 0;
+  width: 15px;
+  height: 18px;
+}
+.datagrid-header-rownumber,
+.datagrid-cell-rownumber{
+  margin: 0;
+  white-space: nowrap;
+  word-wrap: normal;
+  overflow: hidden;
+  height: 18px;
+  line-height: 18px;
+  font-weight: normal;
+  font-size: 12px;
+  cursor:default;
+}
+.datagrid-header-row,
+.datagrid-row {
+  height: 25px;
+}
+.datagrid-header-row { }
+.datagrid-row { }
+
+.datagrid-header-row td {}
+
+.datagrid-row-over,
+.datagrid-header td.datagrid-header-over {
+  background: #eaf2ff;
+  color: #000000;
+  cursor: default;
+}
+.datagrid-row-over {}
+.datagrid-header td.datagrid-header-over {}
+
+.datagrid-row-selected {
+  background: #FBEC88;
+  color: #000000;
+}
+.datagrid-view1 .datagrid-btable { width:100%;}
+.datagrid-group-row-view1 { cursor:pointer;}
+/*分组行*/
+.datagrid-group-row-view1,
+.datagrid-group-row{
+	width:100%;
+	background:#FFF;
+}
+
+.datagrid-group-cell-rownumber { 
+background:url('./images/datagrid_icons.png') no-repeat -32px center; 
+width:16px;
+ height:16px; 
+ margin:0px auto;
+ }
+.datagrid-group-cell-rownumber-select {
+ background:url('./images/datagrid_icons.png') no-repeat -48px center;
+}
+.datagrid-group-row-view1 td,
+.datagrid-group-row td {
+border:none;
+border-bottom:1px solid #ccc;	
+}
+.datagrid-group-cell {
+  margin: 0;
+  padding: 0 4px;
+  height: 25px;
+  line-height: 25px;
+  word-wrap: normal;
+  overflow: hidden;
+  font-weight: normal;
+  font-size: 12px;
+}
+.datagrid-group-cell:hover {
+ }
+.datagrid-cell,
+.datagrid-cell-group {
+  margin: 0;
+  padding: 0 4px;
+  white-space: nowrap;
+  word-wrap: normal;
+  overflow: hidden;
+  height: 18px;
+  line-height: 18px;
+  font-weight: normal;
+  font-size: 12px;
+}
+.datagrid-cell {
+}
+
+.datagrid-body {
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  zoom: 1;
+}
+.datagrid-cell-expand {}
+.datagrid-footer {
+	margin: 0;
+  padding: 0;
+  background:#FFFFFF;
+  }
+.datagrid-sort-icon {
+  padding: 0;
+}
+.datagrid-sort-desc .datagrid-sort-icon {
+  padding: 0 13px 0 0;
+  background: url('./images/datagrid_icons.png') no-repeat -16px center;
+}
+.datagrid-sort-asc .datagrid-sort-icon {
+  padding: 0 13px 0 0;
+  background: url('./images/datagrid_icons.png') no-repeat 0px center;
+}
+/*grid分页工具栏*/
+.datagrid-pager {
+  margin: 0;
+  border-width: 1px 0 0 0;
+  border-style: solid;
+  height: 30px;
+   border-color: #dddddd;
+    background: #F4F4F4;
+}
+.pagination {
+  zoom: 1;
+}
+.pagination table {
+  float: left;
+  height: 30px;
+}
+.pagination-page-list,
+.pagination .pagination-num {
+  border-color: #95B8E7;
+}
+.pagination-page-list {
+  margin: 0px 6px;
+  padding: 1px 2px;
+  width: auto;
+  height: auto;
+  border-width: 1px;
+  border-style: solid;
+}
+.pagination-btn-separator {
+  float: left;
+  height: 24px;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #fff;
+  margin: 3px 1px;
+}
+.pagination .pagination-num {
+  border-width: 1px;
+  border-style: solid;
+  margin: 0 2px;
+  padding: 2px;
+  width: 2em;
+  height: auto;
+}
+.p-plain{padding: 4px 6px 4px 6px; display:inline-block; cursor:pointer;}
+.p-plain:hover {
+	background: #eaf2ff;
+  color: #000000;
+  border: 1px solid #b7d2ff;
+  -moz-border-radius: 5px 5px 5px 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  padding: 3px 5px 3px 5px;
+ }
+ .p-btn-disabled {
+ cursor:default;
+ opacity: 0.5;
+  filter: alpha(opacity=50);
+  }
+ .p-btn{width:16px; height:16px; line-height:16px;display:inline-block; }
+.pagination-first {
+  background: url('./images/pagination_icons.png') no-repeat 0 0;
+}
+.pagination-prev {
+  background: url('./images/pagination_icons.png') no-repeat -16px 0;
+}
+.pagination-next {
+  background: url('./images/pagination_icons.png') no-repeat -32px 0;
+}
+.pagination-last {
+  background: url('./images/pagination_icons.png') no-repeat -48px 0;
+}
+.pagination-load {
+  background: url('./images/pagination_icons.png') no-repeat -64px 0;
+}
+.pagination-info {
+  float: right;
+  margin: 0 6px 0 0;
+  padding: 0;
+  height: 30px;
+  line-height: 30px;
+  font-size: 12px;
+}
+/*grid信息提示*/
+.datagrid-mask {
+  background: #ccc;
+}
+.datagrid-mask-msg {
+  border-color: #95B8E7;
+}
+.datagrid-mask-msg {
+  position: absolute;
+  top: 50%;
+  margin-top: -20px;
+  padding: 12px 5px 10px 30px;
+  width: auto;
+  height: 16px;
+  border-width: 2px;
+  border-style: solid;
+  display: none;
+}
+.datagrid-mask-msg {
+  background: #ffffff url('./images/loading.gif') no-repeat scroll 5px center;
+  z-index:9999;
+}
+.datagrid-mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.3;
+  filter: alpha(opacity=30);
+  display: none;
+  z-index:9998;
+}
+/*grid拖动*/
+.datagrid-resize { cursor:col-resize;}
+.datagrid_resize{ position:absolute; right:0px; width:4px; cursor:col-resize; height:100%; top:0px; z-index:100; background:url(./images/spacer.gif) repeat;}
+
+.column-move {white-space: nowrap;word-wrap: normal; position:absolute; border:1px solid  #95B8E7; background:#95B8E7; padding:1px; color:#000000; opacity: 0.5; filter: alpha(opacity=50);}
+.column-move-line { position:absolute; border:1px solid #95B8E7;}

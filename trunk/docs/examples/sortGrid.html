@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>DataGrid排序表格</title>
+	<script type="text/javascript" src="../js/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="../js/template.js"></script>
+	<script type="text/javascript" src="../js/jquery.extgrid.js"></script>
+	<link rel="stylesheet" type="text/css" href="../style/grid.debug.css">
+</head>
+<body>
+<style type="text/css">
+.demoText{ border:1px solid #ffbe7a;zoom:1; background: #fffced; padding:8px 10px; line-height:20px; text-align:left;}
+</style>
+<div class="demoText">通过datagrid创建一个可排序的Grid</div>
+<div id="datagrid" style="margin:10px; width:700px; height:400px;"></div>
+<script type="text/javascript">
+var data = [
+	{id:1,title:'test1',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:2,title:'test2',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:3,title:'test3',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:4,title:'test4',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:5,title:'test5',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:6,title:'test6',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:7,title:'test7',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:8,title:'test8',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:9,title:'test9',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:10,title:'test10',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:11,title:'test11',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:12,title:'test12',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:13,title:'test13',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:14,title:'test14',content:'DataGrid基本表格创建方法一',path:'base.html'},
+];
+var columns = [
+{field:'id',title:'ID',width:30,sortable:true},
+{field:'title',title:'标题',width:60,sortable:true},
+{field:'content',title:'内容',width:200,sortable:true},
+{field:'path',title:'文件名',width:100,sortable:true}
+];
+var options = {
+	title : 'DataGrid基本表格创建方法一',
+	data : data,
+	columns : columns,
+	sortName : 'id',//可排序列设置
+	sortOrder : 'desc',//默认排序方式
+	rowNumbersWidth : '0px'//可不要
+}
+var grid = $("#datagrid").extgrid(options);
+</script>
+</body>
+</html>

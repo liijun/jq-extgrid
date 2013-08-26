@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>extGrid-下载</title>
+<link rel="stylesheet" href="demo/style.css" type="text/css" media="all" />
+<link href="demo/demo.css" type="text/css" rel="stylesheet" />
+<Meta name="Copyright" Content="grid,js,javascript,jquery,datagrid,table">
+<meta name="keywords" content="grid-js-javascript-jquery-datagrid-table">
+<meta name='description' content='grid-js-javascript-jquery-datagrid-table'>
+<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+<style type="text/css">
+<!--
+.STYLE1 {color: #DD0000}
+-->
+.strong { font-weight:bold;}
+.left-side a:hover { font-weight:bold; text-decoration:none;}
+</style></head>
+
+<body>
+<div class="header">
+
+    <div class="wraper">
+        <ul class="nav">
+            <li><a href="./index.html" >Demo</a></li>
+			 <li><a href="./download.html"  class="current">下载</a></li>
+            <!--<li><a href="./document.html">文档</a></li>
+
+           
+
+            <li><a href="./help.html">帮助</a></li>
+
+            <li><a href="/?p=1">留言</a></li>-->
+
+        </ul>
+
+    </div>
+
+</div>
+<div class="main">
+    <div class="wraper">  
+		<div class="left-side">
+			<ul>
+				<li><a href="#20130805">2013-08-05</a></li>
+			</ul>
+		</div>  
+		<div class="right-side">
+			<div id="20130805" style="display:none;"><a href="extgrid.zip">extgrid.zip 下载</a></div>
+		</div>  
+		<div style="clear:both;"></div>
+    </div>
+</div>
+<div class="footer" style="">
+    <div class="wraper">      
+
+    </div>
+</div>
+<script type="text/javascript">
+$(function(){
+	$(".left-side a").click(function(){
+		$(".left-side a").removeClass("strong");
+		$(this).addClass("strong");
+		$($(this).attr("href")).show();
+	});
+	$(".left-side a").first().click();
+});
+</script>
+</body>
+</html>

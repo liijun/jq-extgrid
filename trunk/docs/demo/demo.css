@@ -1,0 +1,12 @@
+﻿.fz12{font-size:12px;}
+input{padding: 8px 20px; vertical-align:middle;}
+.main{padding-bottom:60px; padding-top:2px;}
+.main h1,
+.main h2,
+.main h3{padding-left:10px;}
+.main h1{text-align:center;color: #212222; font-family: "microsoft yahei"; font-size: 36px; font-weight: normal; line-height: 2em; margin-bottom: 36px;}
+.main h2{background-color:#eee; line-height:2!important;}
+.main h3{font-size:20px; margin-bottom:10px;}
+
+.left-side { float:left; width:150px; border-right:1px dotted green;}
+.right-side { float:right; width:770px; height:550px;}

@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+<title>headerTpl</title>
+<link type="text/css" rel="stylesheet" rev="stylesheet" href="style/style.css" media="all"></link>
+<link type="text/css" rel="stylesheet" rev="stylesheet" href="style/SyntaxHighlighter.css" media="all"></link>
+<link type="text/css" rel="stylesheet" rev="stylesheet" href="style/grid.debug.css" media="all"></link>
+<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="js/template.js"></script>
+<script type="text/javascript" src="js/jquery.extgrid.js"></script>
+<script type="text/javascript" src="js/SyntaxHighlighter.js"></script>
+</head>
+<body>
+<style type="text/css">
+.non-border { border-bottom:none;border-right:none !important; margin:0px; padding:0px;}
+.non-border td{ border:none !important;}
+.non-border td,.non-border th {border-right:1px #ccc dotted !important;}
+.brd {border-bottom:1px #ccc dotted !important;}
+</style>
+<div id="content">
+	<h2>Grid 自定义列模板:headerTpl</h2>
+	<div class="delta">
+		<strong>默认为"" |  字符，模板</strong><br>
+		<br><strong>
+		</strong>
+	</div>
+	<div id="demo" style="margin-top:5px;">
+		<div id="demo1" class="demo" style="height:250px;"></div>
+	</div>
+	<div class="delta dotte">
+		<strong>CSS:</strong>
+		<pre name="code" class="css">
+.non-border { border-bottom:none;border-right:none !important; margin:0px; padding:0px;}
+.non-border td{ border:none !important;}
+.non-border td,.non-border th {border-right:1px #ccc dotted !important;}
+.brd {border-bottom:1px #ccc dotted !important;}
+		</pre>
+		<strong>HTML:</strong>
+		<pre name="code" class="html">
+<div id="demo1" class="demo" style="height:250px;"></div>
+<div id="tpl">
+&lt;tr&gt;
+	&lt;th field='id'&gt;ID&lt;/th&gt;
+	<th class='non-border'><table cellpadding='0' cellspacing='0'><tr><th colspan='2' class='brd'>列合并</th></tr><tr><th  field='title'>标题</th><th  field='content'>内容</th></tr></table></th>
+	&lt;th  field='path'&gt;文件名&lt;/th&gt;
+&lt;/tr&gt;
+</div>			
+		</pre>
+		<strong>Script:</strong>
+		<pre name="code" class="javascript">
+var data = [
+	{id:1,title:'test1',content:'内容1234566789',path:'base1.html'},
+	{id:2,title:'test2',content:'内容2tyuiopf',path:'base2.html'},
+	{id:3,title:'test3',content:'内容3zxcvbnm',path:'base3.html'},
+	{id:4,title:'test4',content:'内容qwertyui4',path:'base4.html'}
+];
+var htpl = $("#tpl").html();
+
+function getCfg(){
+	var columns = [
+		{field:'id',title:'ID',width:30},
+		{field:'title',title:'标题',width:60},
+		{field:'content',title:'内容',width:100,textLimit:true},
+		{field:'path',title:'文件名',width:60,textLimit:true}
+	];
+	var options = {
+		title : '自定义列模板实现列合并',
+		data : data,
+		headerTpl : htpl,
+		textLimit:true,//开启
+		columns : columns
+	}
+	return options;
+}
+var grid1,grid2;
+function create(){
+	var opt1 = getCfg();
+	grid1 = $("#demo1").extgrid(opt1);
+}
+$(function(){
+	create();
+});
+		</pre>
+	</div>
+</div>
+<script type="text/javascript">
+var data = [
+	{id:1,title:'test1',content:'内容1234566789',path:'base1.html'},
+	{id:2,title:'test2',content:'内容2tyuiopf',path:'base2.html'},
+	{id:3,title:'test3',content:'内容3zxcvbnm',path:'base3.html'},
+	{id:4,title:'test4',content:'内容qwertyui4',path:'base4.html'}
+];
+var htpl = "<tr>\
+				<th field='id'>ID</th>\
+				<th class='non-border'><table cellpadding=\"0\" cellspacing=\"0\"><tr><th colspan=\"2\" class='brd'>列合并</th></tr><tr><th  field='title'>标题</th><th  field='content'>内容</th></tr></table></th>\
+				<th  field='path'>文件名</th>\
+			</tr>";
+
+function getCfg(){
+	var columns = [
+		{field:'id',title:'ID',width:30},
+		{field:'title',title:'标题',width:60},
+		{field:'content',title:'内容',width:100,textLimit:true},
+		{field:'path',title:'文件名',width:60,textLimit:true}
+	];
+	var options = {
+		title : '自定义列模板实现列合并',
+		data : data,
+		headerTpl : htpl,
+		textLimit:true,//开启
+		columns : columns
+	}
+	return options;
+}
+var grid1,grid2;
+function create(){
+	var opt1 = getCfg();
+	grid1 = $("#demo1").extgrid(opt1);
+}
+$(function(){
+	create();
+});
+$(window).ready(function(){
+	dp.SyntaxHighlighter.ClipboardSwf = 'js/clipboard.swf';
+	dp.SyntaxHighlighter.HighlightAll('code');
+});
+</script>
+</body>
+</html>
