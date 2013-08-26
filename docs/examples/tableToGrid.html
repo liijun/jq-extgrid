@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>将普通表格转换成grid</title>
+	<script type="text/javascript" src="../js/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="../js/template.js"></script>
+	<script type="text/javascript" src="../js/jquery.extgrid.js"></script>
+	<link rel="stylesheet" type="text/css" href="../style/grid.debug.css">
+</head>
+<body>
+<style type="text/css">
+.demoText{ border:1px solid #ffbe7a;zoom:1; background: #fffced; padding:8px 10px; line-height:20px; text-align:left;}
+</style>
+<div class="demoText">将普通表格转换成grid</div>
+<div id="delta-test" style="display:none;">我只是路过的...</div>
+<div style="margin-left:10px;">
+	模式:<select onChange="change(this)">
+		<option value="1">多选</option>
+		<option value="0">单选</option>
+	</select>
+</div>
+<table  class="table-list"  title="将普通表格转换成grid"  data-options="pageSize:10,pagination:true,height:350,textLimit:true,editColumn:[{text:'编辑'}]" cellpadding="0" cellspacing="0">
+		<thead>
+			<tr>
+				<th class="center" field="ck"><input type="checkbox" class="select-all"></th>
+				<th class="center" >ID</th>
+				<th class="center" >标题</th>
+				<th class="center" data-options="width:'150px',textLimit:true">描述</th>
+				<th class="center" data-options="width:'80px'" >分类</th>
+				<th class="center"  >时间</th>
+				<th class="center" >是否带附件</th>
+				<th class="center" field="ed">编辑</th>
+			</tr>
+		</thead>	
+		<tbody><tr>
+			<td class="center"><input type="checkbox" value="164" name="cids[]"></td>
+			<td class="center">164</td>
+			<td class="center"><a href="http://www.pc6.com/infoview/Article_42148.html" target="_blank"><span style="color:#E53333">解决IE6下 fix问题</span></a></td>
+			<td class="center" title="&lt;pre class=&quot;prettyprint lang-html&quot;&gt;&amp;lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1">解决IE6下 fix问题</td>
+			<td class="center">css</td>
+			<td class="center">2013-08-05</td>
+			<td class="center">否</td>
+			<td class="center"><a href="164.shtml">编辑</a></td>
+			<td class="center" field="_expand"><a href="#">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="163" name="cids[]"></td>
+			<td class="center">163</td>
+			<td class="center"><a><span style="color:#E56600">CSS预定义颜色</span></a></td>
+			<td class="center" title="&lt;p&gt;
+CSS2.1预定义的17种颜色颜色颜色名称16进制rgb表示法&amp;nbsp;
+"></td>
+			<td class="center">css</td>
+			<td class="center">2013-08-04</td>
+			<td class="center">否</td>
+			<td class="center"><a href="163.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="162" name="cids[]"></td>
+			<td class="center">162</td>
+			<td class="center"><a><span style="color:#E53333">js的续行符号'\'</span></a></td>
+			<td class="center" title="&lt;pre class=&quot;prettyprint lang-js&quot;&gt;alert('a
+ab
+dadf
+adf');&lt;/pre&gt;">js的续行符号"\"</td>
+			<td class="center">javascript</td>
+			<td class="center">2013-07-28</td>
+			<td class="center">否</td>
+			<td class="center"><a href="162.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="161" name="cids[]"></td>
+			<td class="center">161</td>
+			<td class="center"><a><span style="color:">group by 别名问题</span></a></td>
+			<td class="center" title="当group by后面出现的字段 如果在表中存在则 group by该字段，��">group by 别名问题</td>
+			<td class="center">sql</td>
+			<td class="center">2013-07-24</td>
+			<td class="center">否</td>
+			<td class="center"><a href="161.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="160" name="cids[]"></td>
+			<td class="center">160</td>
+			<td class="center"><a><span style="color:">datagrid 最新版本</span></a></td>
+			<td class="center" title="&lt;span style=&quot;white-space:nowrap;&quot;&gt;datagrid 最新版本&lt;/span&gt;">datagrid 最新版本</td>
+			<td class="center">DataGrid项目</td>
+			<td class="center">2013-07-21</td>
+			<td class="center"><a href="/CodeManager/Admin/Code/down/cid/160/t/1375758789.shtml">下载</a></td>
+			<td class="center"><a href="160.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="159" name="cids[]"></td>
+			<td class="center">159</td>
+			<td class="center"><a><span style="color:">jTips 修正版</span></a></td>
+			<td class="center" title="&lt;p&gt;
+&lt;span style=&quot;white-space:nowrap;&quot;&gt;&lt;span style=&quot;white-space:nowrap;&quot;&gt;/*&lt;/sp">添加常用操作，方便管理和二次开发</td>
+			<td class="center">jTips項目</td>
+			<td class="center">2013-07-21</td>
+			<td class="center"><a href="/CodeManager/Admin/Code/down/cid/159/t/1375758789.shtml">下载</a></td>
+			<td class="center"><a href="159.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="158" name="cids[]"></td>
+			<td class="center">158</td>
+			<td class="center"><a><span style="color:#009900">apache虚拟主机配置</span></a></td>
+			<td class="center" title="&lt;span style=&quot;white-space:nowrap;&quot;&gt; 
+&lt;div&gt;
+&lt;p&gt;
+	&lt;span style=&quot;font-size:10.50">apache虚拟主机配置</td>
+			<td class="center">apache</td>
+			<td class="center">2013-07-15</td>
+			<td class="center">否</td>
+			<td class="center"><a href="158.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="157" name="cids[]"></td>
+			<td class="center">157</td>
+			<td class="center"><a><span style="color:#E56600">apache 对外发布</span></a></td>
+			<td class="center" title="&lt;p style=&quot;margin:10px auto;padding:0px;color:#666666;font-family:verdana, 'ms so">Deny  禁止
+allow 是允许 
+默认是 Deny all</td>
+			<td class="center">apache</td>
+			<td class="center">2013-07-15</td>
+			<td class="center">否</td>
+			<td class="center"><a href="157.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="156" name="cids[]"></td>
+			<td class="center">156</td>
+			<td class="center"><a href="http://bbs.csdn.net/topics/390300541" target="_blank"><span style="color:">js小知识: js题目</span></a></td>
+			<td class="center" title="&lt;span style=&quot;color:#333333;font-family:Helvetica, Tahoma, Arial, sans-serif;font">js小知识: js题目</td>
+			<td class="center">javascript</td>
+			<td class="center">2013-06-17</td>
+			<td class="center">否</td>
+			<td class="center"><a href="156.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="155" name="cids[]"></td>
+			<td class="center">155</td>
+			<td class="center"><a href="http://runjs.cn" target="_blank"><span style="color:">js 插件网址 runjs</span></a></td>
+			<td class="center" title="&lt;span style=&quot;white-space:nowrap;&quot;&gt;js 插件网址&lt;/span&gt;">js 插件网址</td>
+			<td class="center">jquery</td>
+			<td class="center">2013-06-16</td>
+			<td class="center">否</td>
+			<td class="center"><a href="155.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="154" name="cids[]"></td>
+			<td class="center">154</td>
+			<td class="center"><a><span style="color:#009900">PHPExcel 导出，单元格合并，测试</span></a></td>
+			<td class="center" title="&lt;pre class=&quot;prettyprint lang-php&quot;&gt;$data[0] = array(1,2,3,4,5,6,7,8,9,10);
+$data">PHPExcel 导出，单元格合并，测试</td>
+			<td class="center">php常用类</td>
+			<td class="center">2013-06-15</td>
+			<td class="center">否</td>
+			<td class="center"><a href="154.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="153" name="cids[]"></td>
+			<td class="center">153</td>
+			<td class="center"><a href="http://www.cnblogs.com/GoGoagg/archive/2010/08/16/1800816.html" target="_blank"><span style="color:#EE33EE">Select语句执行顺序</span></a></td>
+			<td class="center" title="&lt;span style=&quot;white-space:nowrap;&quot;&gt;标准的 SQL 的解析顺序为:&lt;/span&gt;&lt;br /&gt;">Select语句执行顺序</td>
+			<td class="center">sql</td>
+			<td class="center">2013-06-07</td>
+			<td class="center">否</td>
+			<td class="center"><a href="153.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="152" name="cids[]"></td>
+			<td class="center">152</td>
+			<td class="center"><a><span style="color:">group by用法</span></a></td>
+			<td class="center" title="&lt;p&gt;
+sql中 group by 对数据分组
+&lt;/p&gt;
+&lt;p&gt;
+1. 没有使用聚合函数��">group by用法</td>
+			<td class="center">sql</td>
+			<td class="center">2013-06-07</td>
+			<td class="center">否</td>
+			<td class="center"><a href="152.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="151" name="cids[]"></td>
+			<td class="center">151</td>
+			<td class="center"><a><span style="color:">IE 6 7中overflow:auto 需要同时设置relative</span></a></td>
+			<td class="center" title="&lt;span style=&quot;white-space:nowrap;&quot;&gt;IE 6 7中overflow:auto 需要同时设置relat">IE 6 7中overflow:auto 需要同时设置relative</td>
+			<td class="center">css</td>
+			<td class="center">2013-06-05</td>
+			<td class="center">否</td>
+			<td class="center"><a href="151.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="150" name="cids[]"></td>
+			<td class="center">150</td>
+			<td class="center"><a><span style="color:">firefox中td th的relative是无效的</span></a></td>
+			<td class="center" title="&lt;span style=&quot;white-space:nowrap;&quot;&gt;firefox中td th的relative是无效的&lt;/span&gt;">firefox中td th的relative是无效的</td>
+			<td class="center">css</td>
+			<td class="center">2013-06-05</td>
+			<td class="center">否</td>
+			<td class="center"><a href="150.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="149" name="cids[]"></td>
+			<td class="center">149</td>
+			<td class="center"><a><span style="color:#009900">contentEditable 可编辑作用</span></a></td>
+			<td class="center" title="&lt;p&gt;
+元素设置了contentEditable=true属性后 onblur &amp;nbsp;onfocus 将会��">contentEditable 可编辑作用</td>
+			<td class="center">javascript</td>
+			<td class="center">2013-06-03</td>
+			<td class="center">否</td>
+			<td class="center"><a href="149.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="148" name="cids[]"></td>
+			<td class="center">148</td>
+			<td class="center"><a href="http://tool.ekco.me/EKLab/index.html" target="_blank"><span style="color:#E53333">jquery 工具库</span></a></td>
+			<td class="center" title="">jquery 工具库</td>
+			<td class="center">jquery</td>
+			<td class="center">2013-06-01</td>
+			<td class="center">否</td>
+			<td class="center"><a href="148.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="147" name="cids[]"></td>
+			<td class="center">147</td>
+			<td class="center"><a href="http://paramquery.com/api" target="_blank"><span style="color:#337FE5">jQuery.PQgrid</span></a></td>
+			<td class="center" title="">非常棒的一款grid插件，测试一下 某些方面比自己的grid插件好</td>
+			<td class="center">jquery</td>
+			<td class="center">2013-06-01</td>
+			<td class="center">否</td>
+			<td class="center"><a href="147.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="146" name="cids[]"></td>
+			<td class="center">146</td>
+			<td class="center"><a><span style="color:">jQuery Easing Plugin</span></a></td>
+			<td class="center" title="&lt;span style=&quot;color:#666666;font-family:Arial;font-size:15px;line-height:25px;whi">jQuery Easing Plugin</td>
+			<td class="center">jquery</td>
+			<td class="center">2013-05-24</td>
+			<td class="center">否</td>
+			<td class="center"><a href="146.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="145" name="cids[]"></td>
+			<td class="center">145</td>
+			<td class="center"><a><span style="color:#99BB00">从mysql迁移到postgreSQL注意点</span></a></td>
+			<td class="center" title="&lt;span style=&quot;white-space:nowrap;&quot;&gt;从mysql迁移到postgreSQL注意点&lt;/span&gt;&lt;br">从mysql迁移到postgreSQL注意点</td>
+			<td class="center">sql</td>
+			<td class="center">2013-05-13</td>
+			<td class="center">否</td>
+			<td class="center"><a href="145.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="144" name="cids[]"></td>
+			<td class="center">144</td>
+			<td class="center"><a><span style="color:">td设置 position:relative后在FF下无效</span></a></td>
+			<td class="center" title="&lt;p&gt;
+&lt;span style=&quot;white-space:nowrap;&quot;&gt;td设置 position:relative后在FF下无">td设置 position:relative后在FF下无效</td>
+			<td class="center">css</td>
+			<td class="center">2013-05-12</td>
+			<td class="center">否</td>
+			<td class="center"><a href="144.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="143" name="cids[]"></td>
+			<td class="center">143</td>
+			<td class="center"><a href="http://www.highcharts.com/" target="_blank"><span style="color:#333333">highcharts.js 图表插件</span></a></td>
+			<td class="center" title="">highcharts.js 图表插件</td>
+			<td class="center">javascript</td>
+			<td class="center">2013-05-07</td>
+			<td class="center">否</td>
+			<td class="center"><a href="143.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="142" name="cids[]"></td>
+			<td class="center">142</td>
+			<td class="center"><a><span style="color:">obj.style.cssText ="..."</span></a></td>
+			<td class="center" title="&lt;span style=&quot;white-space:nowrap;&quot;&gt;obj.style.cssText =&quot;...&quot;&amp;nbsp;&lt;/span&gt;">obj.style.cssText ="..."</td>
+			<td class="center">javascript</td>
+			<td class="center">2013-05-07</td>
+			<td class="center">否</td>
+			<td class="center"><a href="142.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="141" name="cids[]"></td>
+			<td class="center">141</td>
+			<td class="center"><a><span style="color:">jTips</span></a></td>
+			<td class="center" title="&lt;span style=&quot;white-space:nowrap;&quot;&gt;jTips参考jTips项目&lt;/span&gt;">jTips参考jTips项目</td>
+			<td class="center">jQuery项目</td>
+			<td class="center">2013-05-06</td>
+			<td class="center">否</td>
+			<td class="center"><a href="141.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="140" name="cids[]"></td>
+			<td class="center">140</td>
+			<td class="center"><a><span style="color:">jquery.datagrid</span></a></td>
+			<td class="center" title="&lt;span style=&quot;white-space:nowrap;&quot;&gt;&lt;span style=&quot;white-space:nowrap;&quot;&gt;jquery.datag">jquery.datagrid参考datagrid项目</td>
+			<td class="center">jQuery项目</td>
+			<td class="center">2013-05-06</td>
+			<td class="center">否</td>
+			<td class="center"><a href="140.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="139" name="cids[]"></td>
+			<td class="center">139</td>
+			<td class="center"><a><span style="color:#E53333">jquery.datagrid项目</span></a></td>
+			<td class="center" title="&lt;p style=&quot;text-align:center;&quot;&gt;
+&lt;span style=&quot;font-weight:bold;font-size:10.5000">jquery.datagrid项目</td>
+			<td class="center">DataGrid项目</td>
+			<td class="center">2013-05-06</td>
+			<td class="center"><a href="/CodeManager/Admin/Code/down/cid/139/t/1375758789.shtml">下载</a></td>
+			<td class="center"><a href="139.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="138" name="cids[]"></td>
+			<td class="center">138</td>
+			<td class="center"><a href="http://ace.ajax.org/#nav=about" target="_blank"><span style="color:#009900">基于 Web 的代码编辑器-ace.js</span></a></td>
+			<td class="center" title="">基于 Web 的代码编辑器</td>
+			<td class="center">javascript</td>
+			<td class="center">2013-04-04</td>
+			<td class="center">否</td>
+			<td class="center"><a href="138.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="137" name="cids[]"></td>
+			<td class="center">137</td>
+			<td class="center"><a><span style="color:#009900">evalScript</span></a></td>
+			<td class="center" title="&lt;pre class=&quot;prettyprint lang-js&quot;&gt;function evalScript(s){
+function appendScript">执行自定义js，如ajax返回的脚本</td>
+			<td class="center">javascript</td>
+			<td class="center">2013-03-28</td>
+			<td class="center"><a href="/CodeManager/Admin/Code/down/cid/137/t/1375758789.shtml">下载</a></td>
+			<td class="center"><a href="137.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="136" name="cids[]"></td>
+			<td class="center">136</td>
+			<td class="center"><a href="http://quarkjs.com/docs/api/symbols/Stage.html" target="_blank"><span style="color:#EE33EE">quarkjs游戏框架</span></a></td>
+			<td class="center" title="&lt;p&gt;
+&lt;span style=&quot;white-space:nowrap;&quot;&gt;quarkjs游戏框架 使用介绍:&lt;/span&gt;">quarkjs游戏框架</td>
+			<td class="center">javascript</td>
+			<td class="center">2013-03-12</td>
+			<td class="center"><a href="/CodeManager/Admin/Code/down/cid/136/t/1375758789.shtml">下载</a></td>
+			<td class="center"><a href="136.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="135" name="cids[]"></td>
+			<td class="center">135</td>
+			<td class="center"><a href="http://sizzlejs.com/" target="_blank"><span style="color:#E53333">sizzle.jsCSS高速选择器引擎</span></a></td>
+			<td class="center" title="&lt;span style=&quot;white-space:nowrap;&quot;&gt;/*!&lt;/span&gt;&lt;br /&gt;
+&lt;span style=&quot;white-space:now">sizzle.jsCSS高速选择器引擎 比Jquery的选择器快49%</td>
+			<td class="center">javascript</td>
+			<td class="center">2013-03-10</td>
+			<td class="center"><a href="/CodeManager/Admin/Code/down/cid/135/t/1375758789.shtml">下载</a></td>
+			<td class="center"><a href="135.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="134" name="cids[]"></td>
+			<td class="center">134</td>
+			<td class="center"><a><span style="color:">flash和js通信 </span></a></td>
+			<td class="center" title="&lt;p&gt;
+&lt;br /&gt;
+&lt;/p&gt;
+&lt;div&gt;
+flash調用JS 函數很容易。
+&lt;/div&gt;
+&lt;div&gt;
+JS">flash和js通信 </td>
+			<td class="center">javascript</td>
+			<td class="center">2013-03-10</td>
+			<td class="center">否</td>
+			<td class="center"><a href="134.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="133" name="cids[]"></td>
+			<td class="center">133</td>
+			<td class="center"><a><span style="color:#337FE5">js 判断滚动条是否到底</span></a></td>
+			<td class="center" title="&lt;pre class=&quot;prettyprint lang-js&quot;&gt;window.onscroll=function(){
+var scrollTop = d">js 判断滚动条是否到底</td>
+			<td class="center">javascript</td>
+			<td class="center">2013-03-09</td>
+			<td class="center">否</td>
+			<td class="center"><a href="133.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="132" name="cids[]"></td>
+			<td class="center">132</td>
+			<td class="center"><a href="http://www.neoease.com/apache-virtual-host/" target="_blank"><span style="color:#E53333">apache配置多站点(虚拟机)</span></a></td>
+			<td class="center" title="&lt;p style=&quot;margin-top:0px;margin-bottom:10px;padding:0px;font-family:'Microsoft Y">apache配置多站点(虚拟机)</td>
+			<td class="center">基础教程</td>
+			<td class="center">2013-02-28</td>
+			<td class="center"><a href="/CodeManager/Admin/Code/down/cid/132/t/1375758789.shtml">下载</a></td>
+			<td class="center"><a href="132.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="131" name="cids[]"></td>
+			<td class="center">131</td>
+			<td class="center"><a><span style="color:">php数组读取下标可以用{}代替[]</span></a></td>
+			<td class="center" title="&lt;p&gt;
+&lt;span style=&quot;white-space:nowrap;&quot;&gt;小知识提示:&lt;br /&gt;
+&lt;/span&gt;
+&lt;/p&gt;
+&lt;">php数组读取下标可以用{}代替[]</td>
+			<td class="center">基础教程</td>
+			<td class="center">2013-02-27</td>
+			<td class="center">否</td>
+			<td class="center"><a href="131.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="130" name="cids[]"></td>
+			<td class="center">130</td>
+			<td class="center"><a><span style="color:#E53333">IE 6 7 8中pageX Y不存在问题</span></a></td>
+			<td class="center" title="&lt;p&gt;
+在IE &amp;nbsp;6 7 8中获取不到event.pageX or event.pageY
+&lt;/p&gt;
+&lt;p&gt;
+��">IE 6 7 8中pageX Y不存在问题</td>
+			<td class="center">javascript</td>
+			<td class="center">2013-02-25</td>
+			<td class="center">否</td>
+			<td class="center"><a href="130.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="129" name="cids[]"></td>
+			<td class="center">129</td>
+			<td class="center"><a><span style="color:">js小知识：变量 函数等声明顺序</span></a></td>
+			<td class="center" title="&lt;p&gt;
+在一个js模块中&amp;lt;script&amp;gt;&amp;lt;/script&amp;gt;函数声明-&amp;gt;变量��">js小知识：变量 函数等声明顺序</td>
+			<td class="center">javascript</td>
+			<td class="center">2013-02-23</td>
+			<td class="center">否</td>
+			<td class="center"><a href="129.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="128" name="cids[]"></td>
+			<td class="center">128</td>
+			<td class="center"><a><span style="color:">清空js数组的方法</span></a></td>
+			<td class="center" title="&lt;p&gt;
+&lt;span style=&quot;white-space:nowrap;&quot;&gt;
+&lt;p style=&quot;white-space:normal;&quot;&gt;
+	&lt;s">清空js的方法</td>
+			<td class="center">javascript</td>
+			<td class="center">2013-02-23</td>
+			<td class="center">否</td>
+			<td class="center"><a href="128.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="127" name="cids[]"></td>
+			<td class="center">127</td>
+			<td class="center"><a href="http://tangram.baidu.com/magic/components" target="_blank"><span style="color:#006600">百度Magic组件库js有一些常用组件 </span></a></td>
+			<td class="center" title="">日期，滚动条，等</td>
+			<td class="center">javascript</td>
+			<td class="center">2013-02-23</td>
+			<td class="center">否</td>
+			<td class="center"><a href="127.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="126" name="cids[]"></td>
+			<td class="center">126</td>
+			<td class="center"><a href="http://tangram.baidu.com/BaiduTemplate/" target="_blank"><span style="color:#006600">baiduTemplate简单好用的Javascript模板引擎</span></a></td>
+			<td class="center" title="&lt;h2 id=&quot;abaidutemplate-&quot; style=&quot;font-size:24px;margin:0px 0px 10px;color:#393939">baiduTemplate希望创造一个用户觉得“简单好用”的JS模板引擎</td>
+			<td class="center">javascript</td>
+			<td class="center">2013-02-23</td>
+			<td class="center"><a href="/CodeManager/Admin/Code/down/cid/126/t/1375758789.shtml">下载</a></td>
+			<td class="center"><a href="126.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="125" name="cids[]"></td>
+			<td class="center">125</td>
+			<td class="center"><a><span style="color:#009900">Validator 表单验证插件3</span></a></td>
+			<td class="center" title="&lt;p&gt;
+bug:ie的date验证不通过Y-m-d
+&lt;/p&gt;
+&lt;p&gt;
+&lt;span style=&quot;background-col">Validator 表单验证插件3</td>
+			<td class="center">jquery</td>
+			<td class="center">2013-02-18</td>
+			<td class="center">否</td>
+			<td class="center"><a href="125.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="124" name="cids[]"></td>
+			<td class="center">124</td>
+			<td class="center"><a><span style="color:#009900">Validator 表单验证插件2</span></a></td>
+			<td class="center" title="&lt;table cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; style=&quot;word-wrap:break-word;empty-cells:s">Validator 表单验证插件2</td>
+			<td class="center">jquery</td>
+			<td class="center">2013-02-18</td>
+			<td class="center">否</td>
+			<td class="center"><a href="124.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="123" name="cids[]"></td>
+			<td class="center">123</td>
+			<td class="center"><a><span style="color:#009900">Validator 表单验证插件1</span></a></td>
+			<td class="center" title="&lt;span style=&quot;color:#444444;font-family:Tahoma, Helvetica, SimSun, sans-serif;fon">Validator 表单验证插件</td>
+			<td class="center">jquery</td>
+			<td class="center">2013-02-18</td>
+			<td class="center">否</td>
+			<td class="center"><a href="123.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="122" name="cids[]"></td>
+			<td class="center">122</td>
+			<td class="center"><a href="http://oo256.com/CodeManager/Public/Demo/bigFilter/index.html" target="_blank"><span style="color:#E53333">bigFilter插件</span></a></td>
+			<td class="center" title="&lt;span style=&quot;white-space:nowrap;&quot;&gt;bigFilter插件&lt;/span&gt;">bigFilter插件</td>
+			<td class="center">jQuery项目</td>
+			<td class="center">2013-02-15</td>
+			<td class="center">否</td>
+			<td class="center"><a href="122.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="121" name="cids[]"></td>
+			<td class="center">121</td>
+			<td class="center"><a href="http://oo256.com/CodeManager/Public/Demo/colorFilter/index.html" target="_blank"><span style="color:#E53333">颜色渐变插件colorFilter</span></a></td>
+			<td class="center" title="&lt;span style=&quot;white-space:nowrap;&quot;&gt;颜色渐变插件colorFilter&lt;/span&gt;">颜色渐变插件colorFilter</td>
+			<td class="center">jQuery项目</td>
+			<td class="center">2013-02-15</td>
+			<td class="center">否</td>
+			<td class="center"><a href="121.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="120" name="cids[]"></td>
+			<td class="center">120</td>
+			<td class="center"><a href="http://js8.in/381.html" target="_blank"><span style="color:">使用if IE hack注释解决CSS以及JS的兼容问题</span></a></td>
+			<td class="center" title="&lt;span style=&quot;white-space:nowrap;&quot;&gt;使用if IE hack注释解决CSS以及JS的兼�">使用if IE hack注释解决CSS以及JS的兼容问题</td>
+			<td class="center">javascript</td>
+			<td class="center">2013-02-08</td>
+			<td class="center">否</td>
+			<td class="center"><a href="120.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="119" name="cids[]"></td>
+			<td class="center">119</td>
+			<td class="center"><a href="http://linder0209.iteye.com/blog/961157" target="_blank"><span style="color:">浏览器事件机制与自定义事件的实现 </span></a></td>
+			<td class="center" title="&lt;span style=&quot;white-space:nowrap;&quot;&gt;浏览器事件机制与自定义事件的实�">浏览器事件机制与自定义事件的实现 </td>
+			<td class="center">javascript</td>
+			<td class="center">2013-02-08</td>
+			<td class="center">否</td>
+			<td class="center"><a href="119.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="118" name="cids[]"></td>
+			<td class="center">118</td>
+			<td class="center"><a href="http://js8.in/557.html" target="_blank"><span style="color:">解决IE6背景图片不缓存的BUG</span></a></td>
+			<td class="center" title="&lt;pre class=&quot;prettyprint lang-js&quot;&gt;if(isIE6){  
+	try{  
+		DOC.e">解决IE6背景图片不缓存的BUG</td>
+			<td class="center">javascript</td>
+			<td class="center">2013-02-08</td>
+			<td class="center">否</td>
+			<td class="center"><a href="118.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="117" name="cids[]"></td>
+			<td class="center">117</td>
+			<td class="center"><a><span style="color:">js 取消默行为件和事件冒泡</span></a></td>
+			<td class="center" title="&lt;span style=&quot;white-space:nowrap;&quot;&gt;if (window.event) {&amp;nbsp;&lt;/span&gt;&lt;br /&gt;
+&lt;span ">js 取消默行为件和事件冒泡</td>
+			<td class="center">javascript</td>
+			<td class="center">2013-02-07</td>
+			<td class="center">否</td>
+			<td class="center"><a href="117.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="116" name="cids[]"></td>
+			<td class="center">116</td>
+			<td class="center"><a href="http://www.codebrewery.ch/memu/sample.html" target="_blank"><span style="color:">jquery.menu插件</span></a></td>
+			<td class="center" title="">比较好看</td>
+			<td class="center">jquery</td>
+			<td class="center">2013-02-04</td>
+			<td class="center">否</td>
+			<td class="center"><a href="116.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="115" name="cids[]"></td>
+			<td class="center">115</td>
+			<td class="center"><a href="http://medialize.github.com/jQuery-contextMenu/index.html" target="_blank"><span style="color:">jquery.contentMenu</span></a></td>
+			<td class="center" title="">想写一个contentmenu的插件但是在晚上找到了一个合适的</td>
+			<td class="center">jquery</td>
+			<td class="center">2013-02-04</td>
+			<td class="center">否</td>
+			<td class="center"><a href="115.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="114" name="cids[]"></td>
+			<td class="center">114</td>
+			<td class="center"><a href="http://code.google.com/p/dynatree/" target="_blank"><span style="color:">jquery.dynatree树形控件</span></a></td>
+			<td class="center" title="&lt;span style=&quot;white-space:nowrap;&quot;&gt;jquery.dynatree树形控件&lt;/span&gt;">jquery.dynatree树形控件</td>
+			<td class="center">jquery</td>
+			<td class="center">2013-02-03</td>
+			<td class="center"><a href="/CodeManager/Admin/Code/down/cid/114/t/1375758789.shtml">下载</a></td>
+			<td class="center"><a href="114.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="113" name="cids[]"></td>
+			<td class="center">113</td>
+			<td class="center"><a href="http://www.boarsoft.com/cn/" target="_blank"><span style="color:#00D5FF">jquery tree,datagrid,tab,contentmunu</span></a></td>
+			<td class="center" title="&lt;span style=&quot;white-space:nowrap;&quot;&gt;jquery项目集合&lt;/span&gt;">jquery项目集合</td>
+			<td class="center">jquery</td>
+			<td class="center">2013-02-03</td>
+			<td class="center">否</td>
+			<td class="center"><a href="113.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="112" name="cids[]"></td>
+			<td class="center">112</td>
+			<td class="center"><a><span style="color:#E56600">js thumb 函數圖片縮略</span></a></td>
+			<td class="center" title="&lt;pre class=&quot;prettyprint lang-js&quot;&gt;function thumb( img , size , func){
+var size ">圖片縮略</td>
+			<td class="center">javascript</td>
+			<td class="center">2013-01-22</td>
+			<td class="center">否</td>
+			<td class="center"><a href="112.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="111" name="cids[]"></td>
+			<td class="center">111</td>
+			<td class="center"><a href="http://www.webmotionuk.co.uk/php-jquery-image-upload-and-crop/" target="_blank"><span style="color:#B8D100">jquery 圖片剪切 插件</span></a></td>
+			<td class="center" title="">jquery 圖片剪切 插件</td>
+			<td class="center">jquery</td>
+			<td class="center">2013-01-22</td>
+			<td class="center"><a href="/CodeManager/Admin/Code/down/cid/111/t/1375758789.shtml">下载</a></td>
+			<td class="center"><a href="111.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="110" name="cids[]"></td>
+			<td class="center">110</td>
+			<td class="center"><a><span style="color:#E53333">js Img 預先加載問題</span></a></td>
+			<td class="center" title="&lt;p&gt;
+//----方法1 &amp;nbsp;&lt;a href=&quot;http://www.iteye.com/topic/1049884&quot;&gt;http://ww">js Img 預先加載問題</td>
+			<td class="center">javascript</td>
+			<td class="center">2013-01-22</td>
+			<td class="center">否</td>
+			<td class="center"><a href="110.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="109" name="cids[]"></td>
+			<td class="center">109</td>
+			<td class="center"><a><span style="color:#E53333">js判斷當前img是否加載完成</span></a></td>
+			<td class="center" title="function imgLoad(img,callback){&lt;br /&gt;
+&amp;nbsp; &amp;nbsp;img.complete || img.readySta"></td>
+			<td class="center">javascript</td>
+			<td class="center">2013-01-22</td>
+			<td class="center">否</td>
+			<td class="center"><a href="109.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="108" name="cids[]"></td>
+			<td class="center">108</td>
+			<td class="center"><a><span style="color:#E53333">NOBO.js更新</span></a></td>
+			<td class="center" title="&lt;p&gt;
+NOBO.js更新1：
+&lt;/p&gt;
+&lt;p&gt;
+&lt;span style=&quot;background-color:#E53333;&quot;&gt;NOB">NOBO.js更新</td>
+			<td class="center">NOBO.js框架</td>
+			<td class="center">2013-01-21</td>
+			<td class="center">否</td>
+			<td class="center"><a href="108.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="107" name="cids[]"></td>
+			<td class="center">107</td>
+			<td class="center"><a href="http://oo256.com/CodeManager/Public/Demo/jDialog/index.html" target="_blank"><span style="color:#E53333">jquery.jDialog</span></a></td>
+			<td class="center" title=""></td>
+			<td class="center">jQuery项目</td>
+			<td class="center">2013-01-20</td>
+			<td class="center"><a href="/CodeManager/Admin/Code/down/cid/107/t/1375758789.shtml">下载</a></td>
+			<td class="center"><a href="107.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="106" name="cids[]"></td>
+			<td class="center">106</td>
+			<td class="center"><a href="http://www.funnyhao.com/pagex-clientx-offsetx-layerx-of-those-things/" target="_blank"><span style="color:#99BB00">js:event.pageY和event.clientY的問題</span></a></td>
+			<td class="center" title="">event.pageY和event.clientY的問題 IE 不支持clientY</td>
+			<td class="center">javascript</td>
+			<td class="center">2013-01-18</td>
+			<td class="center">否</td>
+			<td class="center"><a href="106.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="105" name="cids[]"></td>
+			<td class="center">105</td>
+			<td class="center"><a href="http://www.oo256.com/CodeManager/Admin/" target="_blank"><span style="color:#E53333">CodeManager系統</span></a></td>
+			<td class="center" title="">管理代碼 书签 日记..</td>
+			<td class="center">php项目</td>
+			<td class="center">2013-01-17</td>
+			<td class="center"><a href="/CodeManager/Admin/Code/down/cid/105/t/1375758789.shtml">下载</a></td>
+			<td class="center"><a href="105.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="104" name="cids[]"></td>
+			<td class="center">104</td>
+			<td class="center"><a><span style="color:">textarea文本域随输入的内容自动增加高度</span></a></td>
+			<td class="center" title="&lt;pre class=&quot;prettyprint lang-js&quot;&gt;$(&quot;textarea&quot;).on(&quot;keyup keydown&quot;, function(){
+">textarea文本域随输入的内容自动增加高度</td>
+			<td class="center">javascript</td>
+			<td class="center">2013-01-16</td>
+			<td class="center">否</td>
+			<td class="center"><a href="104.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="103" name="cids[]"></td>
+			<td class="center">103</td>
+			<td class="center"><a><span style="color:">ie下选择框内容过长解决方法</span></a></td>
+			<td class="center" title="给select绑定mouseover foucs 事件 触发的时候变长即可">ie下选择框内容过长解决方法</td>
+			<td class="center">javascript</td>
+			<td class="center">2013-01-16</td>
+			<td class="center">否</td>
+			<td class="center"><a href="103.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="102" name="cids[]"></td>
+			<td class="center">102</td>
+			<td class="center"><a href="http://www.mansonchor.com/blog/blog_detail_64.html" target="_blank"><span style="color:#64451D">iscroll.js[手机内容滚动js]</span></a></td>
+			<td class="center" title="iscroll.js[手机内容滚动js] 和 jquery mobile 比起来很小的一个js库">iscroll.js[手机内容滚动js] 和 jquery mobile 比起来很小的一个js库</td>
+			<td class="center">javascript</td>
+			<td class="center">2013-01-14</td>
+			<td class="center">否</td>
+			<td class="center"><a href="102.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="101" name="cids[]"></td>
+			<td class="center">101</td>
+			<td class="center"><a><span style="color:#009900">内容模型项目</span></a></td>
+			<td class="center" title="">内容模型CMS 项目</td>
+			<td class="center">php项目</td>
+			<td class="center">2013-01-09</td>
+			<td class="center">否</td>
+			<td class="center"><a href="101.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="100" name="cids[]"></td>
+			<td class="center">100</td>
+			<td class="center"><a><span style="color:#009900">后台开发版项目(有更新)</span></a></td>
+			<td class="center" title="&lt;p&gt;
+BUG需要修正：
+&lt;/p&gt;
+&lt;p&gt;
+&lt;span style=&quot;background-color:#FFE500;&quot;&gt;1.">已经定义好 栏目 角色 权限 用户 配置 功能的后台，可以在以后的开发中直接使用</td>
+			<td class="center">php项目</td>
+			<td class="center">2013-01-09</td>
+			<td class="center"><a href="/CodeManager/Admin/Code/down/cid/100/t/1375758789.shtml">下载</a></td>
+			<td class="center"><a href="100.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="99" name="cids[]"></td>
+			<td class="center">99</td>
+			<td class="center"><a href="http://www.ckpgroup.com/iphoneApp/Admin/Index/index.shtml" target="_blank"><span style="color:#009900">iphoneApp项目后台</span></a></td>
+			<td class="center" title="&lt;p&gt;
+更新内容：
+&lt;/p&gt;
+&lt;p&gt;
+1.Config_ext 添加的时候请用以下
+&lt;/p">有更新：</td>
+			<td class="center">php项目</td>
+			<td class="center">2013-01-09</td>
+			<td class="center"><a href="/CodeManager/Admin/Code/down/cid/99/t/1375758789.shtml">下载</a></td>
+			<td class="center"><a href="99.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="98" name="cids[]"></td>
+			<td class="center">98</td>
+			<td class="center"><a href="http://oo256.com/CodeManager/Public/Demo/jTips/index.html" target="_blank"><span style="color:#E53333">jquery.jTips.js</span></a></td>
+			<td class="center" title="">提示插件</td>
+			<td class="center">jTips項目</td>
+			<td class="center">2013-01-07</td>
+			<td class="center"><a href="/CodeManager/Admin/Code/down/cid/98/t/1375758789.shtml">下载</a></td>
+			<td class="center"><a href="98.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="97" name="cids[]"></td>
+			<td class="center">97</td>
+			<td class="center"><a href="http://bbs.blueidea.com/thread-3016482-1-1.html" target="_blank"><span style="color:">纯CSS实现“三角形箭头”</span></a></td>
+			<td class="center" title="&lt;pre class=&quot;prettyprint lang-html&quot;&gt;&amp;lt;!doctype html&amp;gt;
+&amp;lt;html&amp;gt;
+&amp;lt;titl"></td>
+			<td class="center">css</td>
+			<td class="center">2013-01-05</td>
+			<td class="center">否</td>
+			<td class="center"><a href="97.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="96" name="cids[]"></td>
+			<td class="center">96</td>
+			<td class="center"><a href="http://onehackoranother.com/projects/jquery/tipsy/" target="_blank"><span style="color:">tipsy - Facebook-style tooltip plugin for jQuery</span></a></td>
+			<td class="center" title="&lt;a href=&quot;http://onehackoranother.com/projects/jquery/tipsy/&quot;&gt;http://onehackorano">JQuery 提示插件</td>
+			<td class="center">jquery</td>
+			<td class="center">2012-12-30</td>
+			<td class="center">否</td>
+			<td class="center"><a href="96.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="95" name="cids[]"></td>
+			<td class="center">95</td>
+			<td class="center"><a><span style="color:#337FE5">jQuery主题Style-jMetro</span></a></td>
+			<td class="center" title=""></td>
+			<td class="center">jquery</td>
+			<td class="center">2012-12-26</td>
+			<td class="center"><a href="/CodeManager/Admin/Code/down/cid/95/t/1375758789.shtml">下载</a></td>
+			<td class="center"><a href="95.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="94" name="cids[]"></td>
+			<td class="center">94</td>
+			<td class="center"><a><span style="color:">excanvas.js</span></a></td>
+			<td class="center" title=""></td>
+			<td class="center">jquery</td>
+			<td class="center">2012-12-26</td>
+			<td class="center"><a href="/CodeManager/Admin/Code/down/cid/94/t/1375758789.shtml">下载</a></td>
+			<td class="center"><a href="94.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="93" name="cids[]"></td>
+			<td class="center">93</td>
+			<td class="center"><a><span style="color:">jqueryUI </span></a></td>
+			<td class="center" title="">如果需要尋找相關的UI 請上jqueryui</td>
+			<td class="center">jquery</td>
+			<td class="center">2012-12-20</td>
+			<td class="center">否</td>
+			<td class="center"><a href="93.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="92" name="cids[]"></td>
+			<td class="center">92</td>
+			<td class="center"><a href="http://projects.nickstakenburg.com/tipped/documentation/usage" target="_blank"><span style="color:">Tipped.jquery插件</span></a></td>
+			<td class="center" title="&lt;p&gt;
+Tipped.jquery插件
+&lt;/p&gt;
+&lt;p&gt;
+非常棒的 提示插件
+&lt;/p&gt;
+&lt;p&gt;
+��">Tipped.jquery插件</td>
+			<td class="center">jquery</td>
+			<td class="center">2012-12-20</td>
+			<td class="center"><a href="/CodeManager/Admin/Code/down/cid/92/t/1375758789.shtml">下载</a></td>
+			<td class="center"><a href="92.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="91" name="cids[]"></td>
+			<td class="center">91</td>
+			<td class="center"><a href="http://www.slidesjs.com/" target="_blank"><span style="color:">jquery.slidesjs</span></a></td>
+			<td class="center" title="&lt;p&gt;
+slides js
+&lt;/p&gt;
+&lt;p&gt;
+可以用該插件 實現基本所有的 切換TAB ">jquery插件</td>
+			<td class="center">jquery</td>
+			<td class="center">2012-12-19</td>
+			<td class="center">否</td>
+			<td class="center"><a href="91.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="90" name="cids[]"></td>
+			<td class="center">90</td>
+			<td class="center"><a><span style="color:#EE33EE">KindEditor的多文件上传组件单独调用</span></a></td>
+			<td class="center" title="&lt;pre class=&quot;prettyprint lang-js&quot;&gt;KindEditor.ready(function(K) {
+			var editor ">KindEditor的多文件上传组件单独调用</td>
+			<td class="center">javascript</td>
+			<td class="center">2012-12-13</td>
+			<td class="center"><a href="/CodeManager/Admin/Code/down/cid/90/t/1375758789.shtml">下载</a></td>
+			<td class="center"><a href="90.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="89" name="cids[]"></td>
+			<td class="center">89</td>
+			<td class="center"><a><span style="color:#B8D100">关于回车换行的问题</span></a></td>
+			<td class="center" title="&lt;p&gt;
+&quot;\n&quot; chr(10) &amp;nbsp;:&amp;nbsp;
+&lt;/p&gt;
+&lt;p&gt;
+&amp;nbsp; &amp;nbsp; 换行就是新开��">关于回车换行的问题 \n\r</td>
+			<td class="center">基础教程</td>
+			<td class="center">2012-12-11</td>
+			<td class="center">否</td>
+			<td class="center"><a href="89.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="88" name="cids[]"></td>
+			<td class="center">88</td>
+			<td class="center"><a><span style="color:#99BB00">IFrame自适应高度问题</span></a></td>
+			<td class="center" title="&lt;p&gt;
+&lt;br /&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&amp;nbsp;function iFrameHeight() { var ifm= document.getE">IFrame自适应高度问题
+注意 跨域問題！！</td>
+			<td class="center">javascript</td>
+			<td class="center">2012-12-06</td>
+			<td class="center">否</td>
+			<td class="center"><a href="88.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="87" name="cids[]"></td>
+			<td class="center">87</td>
+			<td class="center"><a><span style="color:#99BB00">mb_strcut 乱码问题</span></a></td>
+			<td class="center" title="&lt;p&gt;
+mb_strcut($value['content'],0,60);这样有可能会出现乱码
+&lt;/p&gt;
+&lt;p">mb_strcut($value['content'],0,60);这样有可能会出现乱码-解决方法...</td>
+			<td class="center">php常用函数</td>
+			<td class="center">2012-12-05</td>
+			<td class="center">否</td>
+			<td class="center"><a href="87.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="86" name="cids[]"></td>
+			<td class="center">86</td>
+			<td class="center"><a><span style="color:#E53333">让IE 6 7 8也支持html5标签</span></a></td>
+			<td class="center" title="&lt;p style=&quot;margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padd">让IE 6 7 8也支持html5标签</td>
+			<td class="center">javascript</td>
+			<td class="center">2012-11-30</td>
+			<td class="center">否</td>
+			<td class="center"><a href="86.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="85" name="cids[]"></td>
+			<td class="center">85</td>
+			<td class="center"><a><span style="color:#4C33E5">SyntaxHighlighter代码高亮JS</span></a></td>
+			<td class="center" title="&lt;p style=&quot;margin-top:10px;margin-right:auto;margin-bottom:10px;margin-left:auto;"></td>
+			<td class="center">javascript</td>
+			<td class="center">2012-11-28</td>
+			<td class="center"><a href="/CodeManager/Admin/Code/down/cid/85/t/1375758789.shtml">下载</a></td>
+			<td class="center"><a href="85.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="84" name="cids[]"></td>
+			<td class="center">84</td>
+			<td class="center"><a><span style="color:">KindEditor的上传路径修改</span></a></td>
+			<td class="center" title="&lt;p&gt;
+编辑器的设定
+&lt;/p&gt;
+&lt;p&gt;
+editor = K.create('textarea[name=&quot;content&quot;">KindEditor的上传路径修改</td>
+			<td class="center">javascript</td>
+			<td class="center">2012-11-27</td>
+			<td class="center">否</td>
+			<td class="center"><a href="84.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="83" name="cids[]"></td>
+			<td class="center">83</td>
+			<td class="center"><a><span style="color:#009900">js获取iframe的内容</span></a></td>
+			<td class="center" title="&lt;p&gt;
+通过获取iframe的obj 然后&amp;nbsp;iframe.contentDocument || iframe.cont">另外一种方法,返回的html格式然後通過body.innerHTML獲取json格式字符串</td>
+			<td class="center">javascript</td>
+			<td class="center">2012-11-27</td>
+			<td class="center">否</td>
+			<td class="center"><a href="83.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="82" name="cids[]"></td>
+			<td class="center">82</td>
+			<td class="center"><a><span style="color:#003399">base64encode</span></a></td>
+			<td class="center" title="var keyStr = &quot;ABCDEFGHIJKLMNOP&quot; +&lt;br /&gt;
+&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbs">base64加密解密  中英文都可以
+js用base64encode加密后 php用base64decode解密不行
+不能和php互通</td>
+			<td class="center">javascript</td>
+			<td class="center">2012-11-26</td>
+			<td class="center"><a href="/CodeManager/Admin/Code/down/cid/82/t/1375758789.shtml">下载</a></td>
+			<td class="center"><a href="82.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="81" name="cids[]"></td>
+			<td class="center">81</td>
+			<td class="center"><a><span style="color:">JSON.js</span></a></td>
+			<td class="center" title="">json的操作函數</td>
+			<td class="center">javascript</td>
+			<td class="center">2012-11-26</td>
+			<td class="center"><a href="/CodeManager/Admin/Code/down/cid/81/t/1375758789.shtml">下载</a></td>
+			<td class="center"><a href="81.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="80" name="cids[]"></td>
+			<td class="center">80</td>
+			<td class="center"><a><span style="color:">json对象转字符串形式</span></a></td>
+			<td class="center" title="&lt;span style=&quot;color:#008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color:#008000;&quot;&gt;*&lt;br /&gt;
+&lt;/sp">json对象转字符串形式</td>
+			<td class="center">javascript</td>
+			<td class="center">2012-11-26</td>
+			<td class="center">否</td>
+			<td class="center"><a href="80.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="79" name="cids[]"></td>
+			<td class="center">79</td>
+			<td class="center"><a><span style="color:">屏蔽所有的js错误</span></a></td>
+			<td class="center" title="&lt;!--/*屏蔽所有的js错误*/&lt;br /&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; function killerrors() {">屏蔽所有的js错误</td>
+			<td class="center">javascript</td>
+			<td class="center">2012-11-25</td>
+			<td class="center">否</td>
+			<td class="center"><a href="79.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="78" name="cids[]"></td>
+			<td class="center">78</td>
+			<td class="center"><a><span style="color:">base64encode</span></a></td>
+			<td class="center" title="/*&lt;br /&gt;
+* &amp;nbsp; &amp;nbsp;Author : lemonice&lt;br /&gt;
+*&lt;br /&gt;
+* &amp;nbsp; &amp;nbsp;Email:">base64encode 加密解密(中文会出现乱码)</td>
+			<td class="center">javascript</td>
+			<td class="center">2012-11-25</td>
+			<td class="center"><a href="/CodeManager/Admin/Code/down/cid/78/t/1375758789.shtml">下载</a></td>
+			<td class="center"><a href="78.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="77" name="cids[]"></td>
+			<td class="center">77</td>
+			<td class="center"><a><span style="color:">phpcms-v9的时间选择js</span></a></td>
+			<td class="center" title="">phpcms-v9的时间选择</td>
+			<td class="center">javascript</td>
+			<td class="center">2012-11-25</td>
+			<td class="center"><a href="/CodeManager/Admin/Code/down/cid/77/t/1375758789.shtml">下载</a></td>
+			<td class="center"><a href="77.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="76" name="cids[]"></td>
+			<td class="center">76</td>
+			<td class="center"><a><span style="color:">ajax-post</span></a></td>
+			<td class="center" title="// JavaScript Document&lt;br /&gt;
+//這個只為快速開發而用，&lt;br /&gt;
+&lt;span c">ajax-post</td>
+			<td class="center">javascript</td>
+			<td class="center">2012-11-25</td>
+			<td class="center">否</td>
+			<td class="center"><a href="76.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="75" name="cids[]"></td>
+			<td class="center">75</td>
+			<td class="center"><a><span style="color:">ajax-get</span></a></td>
+			<td class="center" title="// JavaScript Document&lt;br /&gt;
+// JavaScript Document&lt;br /&gt;
+//這個只為快速">ajax-get</td>
+			<td class="center">javascript</td>
+			<td class="center">2012-11-25</td>
+			<td class="center">否</td>
+			<td class="center"><a href="75.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="74" name="cids[]"></td>
+			<td class="center">74</td>
+			<td class="center"><a><span style="color:">Jquery实现多米诺效果</span></a></td>
+			<td class="center" title="&lt;table cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; style=&quot;word-wrap:break-word;empty-cells:s">Jquery实现多米诺效果</td>
+			<td class="center">jquery</td>
+			<td class="center">2012-11-25</td>
+			<td class="center">否</td>
+			<td class="center"><a href="74.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="73" name="cids[]"></td>
+			<td class="center">73</td>
+			<td class="center"><a><span style="color:">绝对定位遮拦不了select标签</span></a></td>
+			<td class="center" title="&lt;table cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; style=&quot;word-wrap:break-word;empty-cells:s">绝对定位遮拦不了select标签</td>
+			<td class="center">css</td>
+			<td class="center">2012-11-25</td>
+			<td class="center">否</td>
+			<td class="center"><a href="73.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="72" name="cids[]"></td>
+			<td class="center">72</td>
+			<td class="center"><a><span style="color:">IE6下 overflow:visible 无效的问题</span></a></td>
+			<td class="center" title="&lt;table cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; style=&quot;word-wrap:break-word;empty-cells:s">IE6下 overflow:visible 无效的问题</td>
+			<td class="center">css</td>
+			<td class="center">2012-11-25</td>
+			<td class="center">否</td>
+			<td class="center"><a href="72.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="71" name="cids[]"></td>
+			<td class="center">71</td>
+			<td class="center"><a><span style="color:#E53333">jQuery框架的的原理</span></a></td>
+			<td class="center" title="&lt;p align=&quot;left&quot; style=&quot;word-wrap:break-word;margin-top:0px;margin-right:0px;marg">jQuery框架的的原理</td>
+			<td class="center">jquery</td>
+			<td class="center">2012-11-25</td>
+			<td class="center">否</td>
+			<td class="center"><a href="71.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="70" name="cids[]"></td>
+			<td class="center">70</td>
+			<td class="center"><a><span style="color:">直接对象在IE 下的问题</span></a></td>
+			<td class="center" title="&lt;table cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; style=&quot;word-wrap:break-word;empty-cells:s">直接对象在IE 下的问题</td>
+			<td class="center">javascript</td>
+			<td class="center">2012-11-25</td>
+			<td class="center">否</td>
+			<td class="center"><a href="70.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="69" name="cids[]"></td>
+			<td class="center">69</td>
+			<td class="center"><a><span style="color:">uchome的一些好用的JS函数 insertContent</span></a></td>
+			<td class="center" title="function insertContent(target, text) {&lt;br /&gt;
+&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; var ob">uchome的一些好用的JS函数 insertContent</td>
+			<td class="center">javascript</td>
+			<td class="center">2012-11-25</td>
+			<td class="center">否</td>
+			<td class="center"><a href="69.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="68" name="cids[]"></td>
+			<td class="center">68</td>
+			<td class="center"><a><span style="color:">IE 下 png 透明显示BUG </span></a></td>
+			<td class="center" title="&amp;lt;!--[if IE ]&amp;gt;&lt;br /&gt;
+&amp;lt;script src=&quot;/xh/Publicjs/js/DD_belatedPNG.js&quot;&amp;gt;">IE 下 png 透明显示BUG </td>
+			<td class="center">javascript</td>
+			<td class="center">2012-11-25</td>
+			<td class="center">否</td>
+			<td class="center"><a href="68.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="67" name="cids[]"></td>
+			<td class="center">67</td>
+			<td class="center"><a><span style="color:">Login.js </span></a></td>
+			<td class="center" title="">Login.js </td>
+			<td class="center">javascript</td>
+			<td class="center">2012-11-25</td>
+			<td class="center">否</td>
+			<td class="center"><a href="67.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="66" name="cids[]"></td>
+			<td class="center">66</td>
+			<td class="center"><a><span style="color:">Jquery操作select</span></a></td>
+			<td class="center" title="&lt;pre class=&quot;prettyprint lang-js&quot;&gt;Jquery操作select
+1.判断select选项中 是">Jquery操作select</td>
+			<td class="center">javascript</td>
+			<td class="center">2012-11-25</td>
+			<td class="center">否</td>
+			<td class="center"><a href="66.shtml">编辑</a></td>
+		</tr><tr>
+			<td class="center"><input type="checkbox" value="65" name="cids[]"></td>
+			<td class="center">65</td>
+			<td class="center"><a><span style="color:">Google的加载各种框架的接口 </span></a></td>
+			<td class="center" title="script src=&quot;http://www.google.com/jsapi&quot; type=&quot;text/javascript&quot;&amp;gt;&amp;lt;/script&amp;g">Google的加载各种框架的接口 </td>
+			<td class="center">javascript</td>
+			<td class="center">2012-11-25</td>
+			<td class="center">否</td>
+			<td class="center"><a href="65.shtml">编辑</a></td>
+		</tr>			
+	</tbody>	
+</table>
+<script type="text/javascript">
+var str_json = function(o) {
+		var r = [];
+		if(typeof o =="string") return "\""+o.replace(/([\'\"\\])/g,"\\$1").replace(/(\n)/g,"\\n").replace(/(\r)/g,"\\r").replace(/(\t)/g,"\\t")+"\"";
+		if(typeof o == "object"){
+			if(!o.sort){
+				for(var i in o)
+					r.push(i+":"+str_json(o[i]));
+				if(!!document.all && !/^\n?function\s*toString\(\)\s*\{\n?\s*\[native code\]\n?\s*\}\n?\s*$/.test(o.toString)){
+					r.push("toString:"+o.toString.toString());
+				}
+				r="{"+r.join()+"}"
+			}else{
+				for(var i =0;i<o.length;i++) {
+					r.push(str_json(o[i]));
+				}
+				r="["+r.join()+"]"
+			}
+			return r;
+		}
+		return o.toString();
+}
+function change(t) {
+	var cfg = $(".table-list").data("metaData");
+	if( t.value == 0 ) {
+		cfg.singleSelect = true;
+		grid.reLoadGrid(cfg);
+	} else {
+		cfg.singleSelect = false;
+		grid.reLoadGrid(cfg);
+	}
+}
+
+function getData() {
+	var selects = grid.getSlectRows(true);
+	alert( str_json(selects) );
+}
+
+
+var grid = $(".table-list").togrid();
+</script>
+</body>
+</html>

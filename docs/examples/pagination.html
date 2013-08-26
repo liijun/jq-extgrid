@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>DataGrid实现分页+工具栏</title>
+	<script type="text/javascript" src="../js/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="../js/template.js"></script>
+	<script type="text/javascript" src="../js/jquery.extgrid.js"></script>
+	<link rel="stylesheet" type="text/css" href="../style/grid.debug.css">
+</head>
+<body>
+<style type="text/css">
+.demoText{ border:1px solid #ffbe7a;zoom:1; background: #fffced; padding:8px 10px; line-height:20px; text-align:left;}
+</style>
+<div class="demoText">通过datagrid创建一个带分页+工具栏的Grid</div>
+<div id="delta-test" style="display:none;">我只是路过的...</div>
+<div style="margin-left:10px;">
+	模式:<select onChange="change(this)">
+		<option value="1">多选</option>
+		<option value="0">单选</option>
+	</select> <input type="button" value="获取选择的数据" onClick="getData()" />
+</div>
+<div id="datagrid" style="margin:10px; width:700px; height:320px;"></div>
+<script type="text/javascript">
+var str_json = function(o) {
+		var r = [];
+		if(typeof o =="string") return "\""+o.replace(/([\'\"\\])/g,"\\$1").replace(/(\n)/g,"\\n").replace(/(\r)/g,"\\r").replace(/(\t)/g,"\\t")+"\"";
+		if(typeof o == "object"){
+			if(!o.sort){
+				for(var i in o)
+					r.push(i+":"+str_json(o[i]));
+				if(!!document.all && !/^\n?function\s*toString\(\)\s*\{\n?\s*\[native code\]\n?\s*\}\n?\s*$/.test(o.toString)){
+					r.push("toString:"+o.toString.toString());
+				}
+				r="{"+r.join()+"}"
+			}else{
+				for(var i =0;i<o.length;i++) {
+					r.push(str_json(o[i]));
+				}
+				r="["+r.join()+"]"
+			}
+			return r;
+		}
+		return o.toString();
+}
+function change(t) {
+	var cfg = $("#datagrid").data("metaData");
+	if( t.value == 0 ) {
+		cfg.singleSelect = true;
+		grid.reLoadGrid(cfg);
+	} else {
+		cfg.singleSelect = false;
+		grid.reLoadGrid(cfg);
+	}
+}
+
+function getData() {
+	var selects = grid.getSlectRows(true);
+	alert( str_json(selects) );
+}
+var data = [
+	{id:1,title:'产品',content:'点击我显示详细信息',path:'base.html',_delta:'<div><img style="float:left"  src="img/i1.jpg" />新电脑(<%=id%>)<br>CPU:I7<br>2G</div>'},
+	{id:2,title:'test2',content:'DataGrid基本表格创建方法一',path:'base.html',_delta:'#delta-test'},
+	{id:3,title:'test3',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:4,title:'test4',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:5,title:'test5',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:6,title:'test6',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:7,title:'test7',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:8,title:'test8',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:9,title:'test9',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:10,title:'test10',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:11,title:'test11',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:12,title:'test12',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:13,title:'test13',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:14,title:'test14',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:9,title:'test9',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:10,title:'test10',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:11,title:'test11',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:12,title:'test12',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:13,title:'test13',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:13,title:'test13',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:14,title:'test14',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:9,title:'test9',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:10,title:'test10',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:11,title:'test11',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:12,title:'test12',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:13,title:'test13',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:13,title:'test13',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:14,title:'test14',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:9,title:'test9',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:10,title:'test10',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:11,title:'test11',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:12,title:'test12',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:13,title:'test13',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:13,title:'test13',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:14,title:'test14',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:9,title:'test9',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:10,title:'test10',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:11,title:'test11',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:12,title:'test12',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:13,title:'test13',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:13,title:'test13',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:14,title:'test14',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:9,title:'test9',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:10,title:'test10',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:11,title:'test11',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:12,title:'test12',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:13,title:'test13',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:13,title:'test13',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:14,title:'test14',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:9,title:'test9',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:10,title:'test10',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:11,title:'test11',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:12,title:'test12',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:13,title:'test13',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:14,title:'test14',content:'DataGrid基本表格创建方法一',path:'base.html'}
+];
+var columns = [
+{field:'id',title:'ID',width:30,sortable:true},
+{field:'title',title:'标题',width:60},
+{field:'content',title:'内容',width:200},
+{field:'path',title:'文件名',width:100}
+];
+
+var tools = [
+	{text:'我是工具栏的按钮',callBack:function(){alert("我是工具栏的按钮")}},
+	{text:'锁定ID',callBack:function(){ lockColumn.call(this,"id") }},{text:'解锁ID',callBack:function(){ unlockColumn.call(this,"id") }},",",
+	{text:'锁定标题',callBack:function(){ lockColumn.call(this,"title") }},{text:'解锁标题',callBack:function(){ unlockColumn.call(this,"title") }},",",
+	{text:'锁定内容',callBack:function(){ lockColumn.call(this,"content") }},{text:'解锁内容',callBack:function(){ unlockColumn.call(this,"content") }},",",
+	{text:'锁定文件名',callBack:function(){ lockColumn.call(this,"path") }},{text:'解锁文件名',callBack:function(){ unlockColumn.call(this,"path") }},","
+];
+var tools2 = [
+	{text:'按钮',callBack:function(){alert("我是工具栏的按钮")}}
+];
+
+var options = {
+	title : 'DataGrid基本表格创建方法一',
+	data : data,
+	columns : columns,
+	pageSize : 50,
+	sortName : 'id',//可排序列设置
+	sortOrder : 'asc',//默认排序方式
+	moveColumns : true,//可移动列设置
+	toolBars :　tools,//设置工具栏'
+	checkBox : true,//待checkbox列
+	editColumn : [{text:'锁行',callBack:lockRow},"|",{text:'解锁',callBack:unlockRow},"|",{text:'详细',callBack:delta}],
+	editColumnTitle : '行锁操作',
+	pagination : true,//分页工具栏
+	pagerToolBar : tools2,
+	pageNumber : 1,//设置当前页 默认是1
+	pageSize : 10,//设置当前页显示数 默认10
+	pageList : [10,20,30,40,50],//设置可选分页大小 默认[10,20,30,40,50]
+	rowNumbersWidth : '24px'//是否开启rowNumbers 可不要 
+}
+
+
+
+var grid = $("#datagrid").extgrid(options);
+//注： 以下的self 可以用 grid代替 eg: grid.lockRow(rowId)
+function lockRow(t,rowId,field,rowData,_item_) {
+	var self = this;
+	self.lockRow(rowId);
+}
+function unlockRow(t,rowId,field,rowData,_item_) {
+	var self = this;
+	self.unLockRow(parseInt(rowId));
+}
+function lockColumn(field){
+	var self = this;
+	self.lockColumn(field);
+}
+function unlockColumn(field){
+	var self = this;
+	self.unLockColumn(field);
+}
+function delta(t,rowId,field,rowData,_item_){
+	var self = this;
+	var isShow = self.isExpandRowShow(rowId);
+	rowData['_delta'] = rowData['_delta'] ? rowData['_delta'] : '没有详细资料';
+	if( !isShow ) {
+		$(".l-btn-text ",t).html("隐藏");
+		self.expandRow(rowId,rowData['_delta']);
+	} else {
+		$(".l-btn-text ",t).html("详细");
+		self.hideExpandRow(rowId);
+	}
+	
+}
+</script>
+</body>
+</html>

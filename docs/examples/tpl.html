@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>DataGrid实现分页+工具栏</title>
+	<script type="text/javascript" src="../js/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="../js/template.js"></script>
+	<script type="text/javascript" src="../js/jquery.extgrid.js"></script>
+	<link rel="stylesheet" type="text/css" href="../style/grid.debug.css">
+</head>
+<body>
+<style type="text/css">
+.demoText{ border:1px solid #ffbe7a;zoom:1; background: #fffced; padding:8px 10px; line-height:20px; text-align:left;}
+
+</style>
+<style type="text/css">
+.non-border { border-bottom:none;border-right:none !important; margin:0px; padding:0px;}
+.non-border td{ border:none !important;}
+.non-border td,.non-border th {border-right:1px #ccc dotted !important;}
+.brd {border-bottom:1px #ccc dotted !important;}
+</style>
+<div class="demoText">通过datagrid创建一个带分页+工具栏的Grid</div>
+<div id="delta-test" style="display:none;">我只是路过的...</div>
+<div style="margin-left:10px;">
+	模式:<select onChange="change(this)">
+		<option value="1">多选</option>
+		<option value="0">单选</option>
+	</select> <input type="button" value="获取选择的数据" onClick="getData()" />
+	搜索:<select id="_field">
+		<option value="id">ID</option>
+		<option value="title">标题</option>
+		<option value="content">内容</option>
+		<option value="path">文件名</option>
+	</select>
+	<input type="text" value="" id="_c" size="10"> <input type="button" value="搜索" onClick="_search()" />
+</div>
+<div id="datagrid" style="margin:10px; width:700px; height:320px;"></div>
+<script type="text/javascript">
+var str_json = function(o) {
+		var r = [];
+		if(typeof o =="string") return "\""+o.replace(/([\'\"\\])/g,"\\$1").replace(/(\n)/g,"\\n").replace(/(\r)/g,"\\r").replace(/(\t)/g,"\\t")+"\"";
+		if(typeof o == "object"){
+			if(!o.sort){
+				for(var i in o)
+					r.push(i+":"+str_json(o[i]));
+				if(!!document.all && !/^\n?function\s*toString\(\)\s*\{\n?\s*\[native code\]\n?\s*\}\n?\s*$/.test(o.toString)){
+					r.push("toString:"+o.toString.toString());
+				}
+				r="{"+r.join()+"}"
+			}else{
+				for(var i =0;i<o.length;i++) {
+					r.push(str_json(o[i]));
+				}
+				r="["+r.join()+"]"
+			}
+			return r;
+		}
+		return o.toString();
+}
+function _search() {
+	var sd = $("#_c").val();
+	var f = $("#_field").val();
+	if( sd == "" ) {
+		grid.clearSearch();
+		return;	
+	}
+	grid.searchData(sd,f,true);//如果为false 则 发送到服务端搜索
+}
+function change(t) {
+	var cfg = $("#datagrid").data("metaData");
+	if( t.value == 0 ) {
+		cfg.singleSelect = true;
+		grid.reLoadGrid(cfg);
+	} else {
+		cfg.singleSelect = false;
+		grid.reLoadGrid(cfg);
+	}
+}
+
+function getData() {
+	var selects = grid.getSlectRows(true);
+	alert( str_json(selects) );
+}
+var columns = [
+{field:'id',title:'ID',width:30,sortable:true},
+{field:'title',title:'标题',width:60},
+{field:'content',title:'内容',width:200},
+{field:'path',title:'文件名',width:100}
+];
+//合并列
+//注意 ck ed 是系统默认的列 如果开启 checkBox 和 editColumn 在 需要在模版中加入
+var htpl = "<tr>\
+				<th field='ck'></th>\
+				<th field='id'>ID</th>\
+				<th field='title'>标题</th>\
+				<th class='non-border'>\
+					<table cellpadding=\"0\" cellspacing=\"0\">\
+						<tr>\
+							<th colspan=\"2\" class='brd'>列合并</th>\
+						</tr>\
+						<tr>\
+							<th field='content'>内容</th>\
+							<th field='path'>文件名</th>\
+						</tr>\
+						</table>\
+				</th>\
+				<th field='ed'>ID</th>\
+			</tr>";
+
+var data = [
+	{id:1,title:'产品',content:'点击我显示详细信息',path:'base.html',_delta:'<div><img style="float:left"  src="img/i1.jpg" />新电脑(<%=id%>)<br>CPU:I7<br>2G</div>'},
+	{id:2,title:'test2',content:'DataGrid基本da表格创建方法一',path:'baseaac.html',_delta:'#delta-test'},
+	{id:3,title:'test3',content:'DataGrid基本表格创建方法一',path:'bavcse.html'},
+	{id:4,title:'test4',content:'DataGridadf基本表格创建方法一',path:'base.html'},
+	{id:5,title:'test5',content:'DataGrid基本表格创建方法一',path:'base.hcvtml'},
+	{id:6,title:'atest6',content:'DataGricafd基本表格创建方法一',path:'base.html'},
+	{id:7,title:'ctest7',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:8,title:'test8',content:'DataGrid基adf本表格创建方法一',path:'base.html'},
+	{id:9,title:'test9',content:'DataGrid基本表格创建方法一',path:'bascvae.html'},
+	{id:10,title:'test10',content:'DataGrid基adfa本表格创建方法一',path:'base.html'},
+	{id:11,title:'test11',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:12,title:'test12',content:'DataGrid基ad本表格创建方法一',path:'base.html'},
+	{id:13,title:'nmtest13',content:'DataGrid基fga本表格创建方法一',path:'base.html'},
+	{id:14,title:'test14',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:9,title:'test9',content:'DataGrid基本adcva表格创建方法一',path:'bafddase.html'},
+	{id:10,title:'test10',content:'DataGrid基本表格创建方法一',path:'base.html'},
+	{id:11,title:'test11',content:'DataGrid基本adf表格创建方法一',path:'baddse.html'},
+	{id:12,title:'test12',content:'DataGrid基本表格创建方法一',path:'baaacse.html'},
+	{id:13,title:'test13',content:'DataGrid基本adf表格创建方法一',path:'base.html'},
+	{id:14,title:'test14',content:'DataGrid基本表zxfa格创建方法一',path:'bbc.html'}
+];
+
+
+
+var options = {
+	title : 'DataGrid基本表格创建方法一',
+	data : data,
+	//url : 'datagrid_data.json',
+	columns : columns,
+	sortName : 'id',//可排序列设置
+	sortOrder : 'asc',//默认排序方式
+	moveColumns : true,//可移动列设置
+	checkBox : true,//待checkbox列
+	editColumn : [{text:'锁行',callBack:lockRow},"|",{text:'解锁',callBack:unlockRow},"|",{text:'详细',callBack:delta}],
+	editColumnTitle : '行锁操作',
+	headerTpl:htpl,//自定义模版 实现列合并
+	pagination : true,//分页工具栏
+	pageNumber : 1,//设置当前页 默认是1
+	pageSize : 10,//设置当前页显示数 默认10
+	pageList : [10,20,30,40,50],//设置可选分页大小 默认[10,20,30,40,50]
+	rowNumbersWidth : '24px'//是否开启rowNumbers 可不要 
+}
+
+
+
+var grid = $("#datagrid").extgrid(options);
+grid.bind("onClickRow",function(t,rid,data){alert(str_json(data));});
+grid.bind("onSearch",function(data){alert(str_json(data));})
+grid.bind("onExpandRow",function(data){alert("onExpandRow");})
+
+//注： 以下的self 可以用 grid代替 eg: grid.lockRow(rowId)
+function lockRow(t,rowId,field,rowData,_item_) {
+	var self = this;
+	self.lockRow(rowId);
+}
+function unlockRow(t,rowId,field,rowData,_item_) {
+	var self = this;
+	self.unLockRow(parseInt(rowId));
+}
+function lockColumn(field){
+	var self = this;
+	self.lockColumn(field);
+}
+function unlockColumn(field){
+	var self = this;
+	self.unLockColumn(field);
+}
+function delta(t,rowId,field,rowData,_item_){
+	var self = this;
+	var isShow = self.isExpandRowShow(rowId);
+	rowData['_delta'] = rowData['_delta'] ? rowData['_delta'] : '没有详细资料';
+	if( !isShow ) {
+		$(".l-btn-text ",t).html("隐藏");
+		self.expandRow(rowId,rowData['_delta']);
+	} else {
+		$(".l-btn-text ",t).html("详细");
+		self.hideExpandRow(rowId);
+	}
+	
+}
+</script>
+</body>
+</html>

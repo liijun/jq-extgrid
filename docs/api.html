@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+<title>api</title>
+<link type="text/css" rel="stylesheet" rev="stylesheet" href="style/style.css" media="all"></link>
+<link type="text/css" rel="stylesheet" rev="stylesheet" href="style/SyntaxHighlighter.css" media="all"></link>
+<link type="text/css" rel="stylesheet" rev="stylesheet" href="style/grid.debug.css" media="all"></link>
+<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="js/template.js"></script>
+<script type="text/javascript" src="js/jquery.extgrid.js"></script>
+<script type="text/javascript" src="js/SyntaxHighlighter.js"></script>
+</head>
+<body>
+<div id="content">
+	<h2>API</h2>
+	<div class="delta dotte">
+		<pre name="code" class="javascript">
+bind(event,func) // 返回事件id		
+unbind(id) //取消绑定
+fireEvent(eventType,scope,data)//触发事件
+
+showLoading(msg,render)
+hideLoading()
+
+getColumnData(columnName,proto,value) 
+setColumnData(columnName,proto,value)//设置后会立即刷新表格
+setColumnValue(field,key,value) //设置后会不会刷新表格
+
+getData() //获取grid数据 （所有） 
+
+onSizeChange(width,height), setWH(width,height) // 更新或设置 gird大小  
+onViewSizeChange() // 更新View 内容大小
+
+getRowData(rid,isPK) //获取行数据  根据 rid 或者 pk主键值来查找
+setRowData(rid,field,value) //设置data的数据
+
+getFieldValue(rid,field) //获取单元格数据
+setFieldValue(rid,field,value) //设置单元格数据
+
+getSlectRows(d) // 返回选择行id false or 数据 true
+
+lockRow(rowId) //行锁
+unLockRow(rowId) //解除行锁
+lockColumn(field) //列锁
+unLockColumn(field) //解除列锁
+
+getColumns()  //获取列信息
+getColumnList()//获取列名
+showColumn(field) //显示某列
+hideColumn(field) //隐藏某列
+sortColumn(field) //对某列进行排序 排序后不可取消排序
+
+expandRow(rowId,html) //显示扩展行 html 可以是模板
+hideExpandRow(rowId) //隐藏扩展行 
+destroyExpandRow(rowId) //移除扩展行
+updateExpandRow(rowId,html) //更新扩展行内容
+
+selectAllRows()  //选择所有行
+unselectAllRows() //取消选择所有行
+selectRow(rowId) //选中某一行
+unselectRow(rowId) //取消选中某一行
+
+showGroup(gid) //显示某分组
+hideGroup(gid) //关闭某分组
+
+searchData(text,field,async,data) //搜索数据 text:搜索文本,filed:从某字段中搜索，async：true 本地搜索，false服务器搜索 有默认,data的数据 默认是data
+
+clearSearch(_refresh)//取消搜索  _refresh true 则 清除查询结果并刷新表格; false 不刷新表格
+
+refreshData() //刷新表格数据
+refreshDataCache() //无ajax刷新表格数据
+reLoadGrid(cfg,setAll) //重新生成grid 慎用 setAll是否重置所有数据 否则保留source columns
+
+C(key,value) //获取 或设置 参数
+
+sortData(field,data,type) //对field列进行排序 type = asc type= desc
+
+addData(datas)
+updateData(datas)
+deleteData(datas)
+
+$(selector).togrid(cfg);//将普通表格转换成grid表格
+/*
+注:
+options_from : 'data-options' // config来源
+columns_from : 'thead th' // 字段来源 如果找不到则取第一个tr的值 并移除该tr  如果td,th设置了 ignore 不会当做列
+data_from : 'tbody tr' //data来源  找不到则查找tr的值
+<table data-options="pagination:true,title='toGrid'">
+	<thead>
+	<tr>
+		<th field="id" data-options="sortable:true">ID</th>
+		<th field="title">标题</th>
+		<th field="gs" ignore >我会被忽略</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td field="id">1</td><td field="title" /*field可不要 默认会按顺序匹配*/>测试</td>
+	</tr>
+	</tbody>
+</table>
+*/
+		</pre>
+	</div>
+</div>
+<script type="text/javascript">
+$(window).ready(function(){
+	dp.SyntaxHighlighter.ClipboardSwf = 'js/clipboard.swf';
+	dp.SyntaxHighlighter.HighlightAll('code');
+});
+</script>
+</body>
+</html>

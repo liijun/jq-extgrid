@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+<title>lockColumns</title>
+<link type="text/css" rel="stylesheet" rev="stylesheet" href="style/style.css" media="all"></link>
+<link type="text/css" rel="stylesheet" rev="stylesheet" href="style/SyntaxHighlighter.css" media="all"></link>
+<link type="text/css" rel="stylesheet" rev="stylesheet" href="style/grid.debug.css" media="all"></link>
+<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="js/template.js"></script>
+<script type="text/javascript" src="js/jquery.extgrid.js"></script>
+<script type="text/javascript" src="js/SyntaxHighlighter.js"></script>
+</head>
+<body>
+<style type="text/css">
+.grid-border-x { border:2px solid red;}
+.grid-border-x2 { border:2px solid red; border-left:none; border-right:none;}
+</style>
+<div id="content">
+	<h2>Grid 列锁:lockColumns</h2>
+	<div class="delta">
+		<strong>默认为 [] 字段</strong><br>
+		注:<br />
+		可调用 lockColumn(field) 实现列锁<br>
+		<br><strong>
+		</strong>
+	</div>
+	<div id="demo" style="margin-top:5px;">
+		<div id="demo1" class="demo" style="height:200px;"></div>
+	</div>
+	<div class="delta dotte">
+		<strong>HTML:</strong>
+		<pre name="code" class="html">
+<div id="demo1" class="demo" style="height:200px;"></div>
+		</pre>
+		<strong>Script:</strong>
+		<pre name="code" class="javascript">
+var data = [
+	{id:1,title:'test1',content:'内容1234566789',path:'base1.html'},
+	{id:2,title:'test2',content:'内容2tyuiopf',path:'base2.html'},
+	{id:3,title:'test3',content:'我被锁定内容3zxcvbnm',path:'base3.html'},
+	{id:4,title:'test4',content:'我被锁定内容qwertyui4',path:'base4.html'},
+	{id:5,title:'test2',content:'内容2tyuiopf',path:'base2.html'},
+	{id:6,title:'test2',content:'内容2tyuiopf',path:'base2.html'},
+	{id:7,title:'test2',content:'内容2tyuiopf',path:'base2.html'},
+	{id:8,title:'test2',content:'内容2tyuiopf',path:'base2.html'},
+	{id:9,title:'test9',content:'内容qwertyui4',path:'base5.html'}
+];
+
+
+function getCfg(){
+	var columns = [
+		{field:'id',title:'ID',width:30,fitColumn:false},
+		{field:'title',title:'标题',width:200},
+		{field:'content',title:'内容',width:300,textLimit:true},
+		{field:'path',title:'文件名',width:200,textLimit:true}
+	];
+	var options = {
+		title : '列锁',
+		data : data,
+		lockRows : [2,3],//锁定 3，4行
+		lockColumns : ['path','title'],//锁定 path，title列
+		rowNumbersWidth : '25px',
+		textLimit:true,//开启
+		columns : columns
+	}
+	return options;
+}
+var grid1;
+function create(){
+	var opt1 = getCfg();
+	grid1 = $("#demo1").extgrid(opt1);
+}
+$(function(){
+	create();
+});
+		</pre>
+	</div>
+</div>
+<script type="text/javascript">
+var data = [
+	{id:1,title:'test1',content:'内容1234566789',path:'base1.html'},
+	{id:2,title:'test2',content:'内容2tyuiopf',path:'base2.html'},
+	{id:3,title:'test3',content:'我被锁定内容3zxcvbnm',path:'base3.html'},
+	{id:4,title:'test4',content:'我被锁定内容qwertyui4',path:'base4.html'},
+	{id:5,title:'test2',content:'内容2tyuiopf',path:'base2.html'},
+	{id:6,title:'test2',content:'内容2tyuiopf',path:'base2.html'},
+	{id:7,title:'test2',content:'内容2tyuiopf',path:'base2.html'},
+	{id:8,title:'test2',content:'内容2tyuiopf',path:'base2.html'},
+	{id:9,title:'test9',content:'内容qwertyui4',path:'base5.html'}
+];
+
+
+function getCfg(){
+	var columns = [
+		{field:'id',title:'ID',width:30,fitColumn:false},
+		{field:'title',title:'标题',width:200},
+		{field:'content',title:'内容',width:300,textLimit:true},
+		{field:'path',title:'文件名',width:200,textLimit:true}
+	];
+	var options = {
+		title : '列锁',
+		data : data,
+		lockRows : [2,3],//锁定 3，4行
+		lockColumns : ['path','title'],//锁定 path，title列
+		rowNumbersWidth : '25px',
+		textLimit:true,//开启
+		columns : columns
+	}
+	return options;
+}
+var grid1;
+function create(){
+	var opt1 = getCfg();
+	grid1 = $("#demo1").extgrid(opt1);
+}
+$(function(){
+	create();
+});
+$(window).ready(function(){
+	dp.SyntaxHighlighter.ClipboardSwf = 'js/clipboard.swf';
+	dp.SyntaxHighlighter.HighlightAll('code');
+});
+</script>
+</body>
+</html>

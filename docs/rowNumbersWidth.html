@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+<title>rowNumbersWidth</title>
+<link type="text/css" rel="stylesheet" rev="stylesheet" href="style/style.css" media="all"></link>
+<link type="text/css" rel="stylesheet" rev="stylesheet" href="style/SyntaxHighlighter.css" media="all"></link>
+<link type="text/css" rel="stylesheet" rev="stylesheet" href="style/grid.debug.css" media="all"></link>
+<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="js/template.js"></script>
+<script type="text/javascript" src="js/jquery.extgrid.js"></script>
+<script type="text/javascript" src="js/SyntaxHighlighter.js"></script>
+</head>
+<body>
+<style type="text/css">
+.grid-border-x { border:2px solid red;}
+.grid-border-x2 { border:2px solid red; border-left:none; border-right:none;}
+</style>
+<div id="content">
+	<h2>Grid rowNumbers:rowNumbersWidth</h2>
+	<div class="delta">
+		<strong>默认为false 不显示|  像素单位(0~∞)px</strong><br>
+		关联属性:<br>
+			1.rowNumbersExpand 默认 1 的自增(接受一个字符或者模板字符串)<br>
+			2.rowNumbers2Row  true 点击后选择行
+		<br><strong>
+		注:<br>
+		1.rowNumbersWidth为0px时,会有1px的边框线<br>
+		2.当开启分组，行列锁的时候,rowNumbersWidth如果为false 则会自动设置成0px
+		</strong>
+	</div>
+	<div id="demo" style="margin-top:5px;">
+		<div id="demo1" class="demo" style="height:150px;"></div>
+		<div style="height:10px;"></div>
+		<div id="demo2" class="demo" style="height:150px;"></div>
+		<div style="height:10px;"></div>
+		<div id="demo3" class="demo" style="height:150px;"></div>
+		<div style="height:10px;"></div>
+		<div id="demo4" class="demo" style="height:150px;"></div>
+	</div>
+	<div class="delta dotte">
+		<strong>HTML:</strong>
+		<pre name="code" class="html">
+<div id="demo1" class="demo" style="height:150px;"></div>
+<div style="height:10px;"></div>
+<div id="demo2" class="demo" style="height:150px;"></div>
+<div style="height:10px;"></div>
+<div id="demo3" class="demo" style="height:150px;"></div>
+<div style="height:10px;"></div>
+<div id="demo4" class="demo" style="height:150px;"></div>
+		</pre>
+		<strong>Script:</strong>
+		<pre name="code" class="javascript">
+var data = [
+	{id:1,title:'test1',content:'内容1',path:'base1.html'},
+	{id:2,title:'test2',content:'内容2',path:'base2.html'},
+	{id:3,title:'test3',content:'内容3',path:'base3.html'},
+	{id:4,title:'test4',content:'内容4',path:'base4.html'}
+];
+
+
+function getCfg(){
+	var columns = [
+		{field:'id',title:'ID',width:30,fitColumn:false},
+		{field:'title',title:'标题',width:60},
+		{field:'content',title:'内容',width:200},
+		{field:'path',title:'文件名',width:100}
+	];
+	var options = {
+		title : 'rowNumbersWidth="0px"',
+		data : data,
+		columns : columns,
+		rowNumbersWidth : '0px'
+	}
+	return options;
+}
+var grid1,grid2,grid3,grid4;
+function create(){
+	var opt1 = getCfg();
+	grid1 = $("#demo1").extgrid(opt1);
+	
+	var opt2 = getCfg();
+	opt2.title='rowNumbersWidth="24px"';
+	opt2.rowNumbersWidth='24px';
+	grid2 = $("#demo2").extgrid(opt2);
+	
+	var opt3 = getCfg();
+	opt3.title='rowNumbersWidth=false';
+	opt3.rowNumbersWidth=false;
+	grid3 = $("#demo3").extgrid(opt3);
+	
+	var opt4 = getCfg();
+	opt4.title='rowNumbersExpand';
+	opt4.rowNumbersWidth='60px';
+	opt4.rowNumbersExpand = '当前ID:<%=id%>';
+	grid4 = $("#demo4").extgrid(opt4);
+	
+}
+$(function(){
+	create();
+});
+		</pre>
+	</div>
+</div>
+<script type="text/javascript">
+var data = [
+	{id:1,title:'test1',content:'内容1',path:'base1.html'},
+	{id:2,title:'test2',content:'内容2',path:'base2.html'},
+	{id:3,title:'test3',content:'内容3',path:'base3.html'},
+	{id:4,title:'test4',content:'内容4',path:'base4.html'}
+];
+
+
+function getCfg(){
+	var columns = [
+		{field:'id',title:'ID',width:30,fitColumn:false},
+		{field:'title',title:'标题',width:60},
+		{field:'content',title:'内容',width:200},
+		{field:'path',title:'文件名',width:100}
+	];
+	var options = {
+		title : 'rowNumbersWidth="0px"',
+		data : data,
+		columns : columns,
+		rowNumbersWidth : '0px'
+	}
+	return options;
+}
+var grid1,grid2,grid3,grid4;
+function create(){
+	var opt1 = getCfg();
+	grid1 = $("#demo1").extgrid(opt1);
+	
+	var opt2 = getCfg();
+	opt2.title='rowNumbersWidth="24px"';
+	opt2.rowNumbersWidth='24px';
+	grid2 = $("#demo2").extgrid(opt2);
+	
+	var opt3 = getCfg();
+	opt3.title='rowNumbersWidth=false';
+	opt3.rowNumbersWidth=false;
+	grid3 = $("#demo3").extgrid(opt3);
+	
+	var opt4 = getCfg();
+	opt4.title='rowNumbersExpand';
+	opt4.rowNumbersWidth='60px';
+	opt4.rowNumbersExpand = '当前ID:<%=id%>';
+	grid4 = $("#demo4").extgrid(opt4);
+	
+}
+$(function(){
+	create();
+});
+$(window).ready(function(){
+	dp.SyntaxHighlighter.ClipboardSwf = 'js/clipboard.swf';
+	dp.SyntaxHighlighter.HighlightAll('code');
+});
+</script>
+</body>
+</html>

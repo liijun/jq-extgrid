@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+<title>editColumn</title>
+<link type="text/css" rel="stylesheet" rev="stylesheet" href="style/style.css" media="all"></link>
+<link type="text/css" rel="stylesheet" rev="stylesheet" href="style/SyntaxHighlighter.css" media="all"></link>
+<link type="text/css" rel="stylesheet" rev="stylesheet" href="style/grid.debug.css" media="all"></link>
+<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="js/template.js"></script>
+<script type="text/javascript" src="js/jquery.extgrid.js"></script>
+<script type="text/javascript" src="js/SyntaxHighlighter.js"></script>
+</head>
+<body>
+<div id="content">
+	<h2>Grid编辑列:editColumn</h2>
+	<div class="delta">
+		<strong>默认为false,不显示 | [object1,object2,object3,...]<br>
+		object=>{text : '',cls : '',callBack : $.noop,disabled:false}(设置可参考toolBars)<br>
+		关联属性(默认值):<br>
+		editCellW : 60 每个按钮宽度<br>
+		editColumnTitle : '操作' 编辑列标题<br>
+		editColumnFit : true 编辑列是否可改变大小<br>
+		注:<br>
+		callBack(t(按钮本身),rowId(行id),field(字段包含的信息),rowData(所有数据) )<br>
+		editColumn 为true的时候 关联属性才生效，而且columns中的 ed 会成为系统字段
+		</strong>
+	</div>
+	<div id="demo" style="margin-top:5px;">
+		<div id="demo1" class="demo" style="height:150px;"></div>
+		<div style="height:10px;"></div>
+		<div id="demo2" class="demo" style="height:150px;"></div>
+	</div>
+	<div class="delta dotte">
+
+		<strong>HTML:</strong>
+		<pre name="code" class="html">
+<div id="demo1" class="demo" style="height:150px;"></div>
+<div style="height:10px;"></div>
+<div id="demo2" class="demo" style="height:150px;"></div>
+		</pre>
+		<strong>Script:</strong>
+		<pre name="code" class="javascript">
+var data = [
+	{id:1,title:'test1',content:'内容1',path:'base1.html'},
+	{id:2,title:'test2',content:'内容2',path:'base2.html'},
+	{id:3,title:'test3',content:'内容3',path:'base3.html'},
+	{id:4,title:'test4',content:'内容4',path:'base4.html'},
+	{id:5,title:'test5',content:'内容5',path:'base5.html'},
+	{id:6,title:'test6',content:'内容6',path:'base6.html'},
+	{id:7,title:'test7',content:'内容7',path:'base7.html'}
+];
+
+//Cfg建议写道函数里
+function getCfg(){
+	var columns = [
+		{field:'id',title:'ID',width:30,fitColumn:false},
+		{field:'title',title:'标题',width:60},
+		{field:'content',title:'内容',width:200},
+		{field:'path',title:'文件名',width:100}
+	];
+	var options = {
+		title : 'gird editColumn',
+		data : data,
+		columns : columns,
+		editColumn :　[ {text:'编辑',callBack:function(t,rowId,field,rowData){alert(rowId);}},"|",{text:"删除"},"|","我不是按钮" ]
+	}
+	return options;
+}
+function getCfg2(){
+	var columns = [
+		{field:'ed'},
+		{field:'id',title:'ID',width:30,fitColumn:false},
+		{field:'title',title:'标题',width:60},
+		{field:'content',title:'内容',width:200},
+		{field:'path',title:'文件名',width:100}
+		
+	];
+	var options = {
+		title : 'gird editColumn自定义显示位置',
+		data : data,
+		columns : columns,
+		editColumn :　[ {text:'编辑'},"|",{text:"删除"},"|","我不是按钮" ]
+	}
+	return options;
+}
+var grid1,grid2;
+function create(){
+	var opt1 = getCfg();
+	grid1 = $("#demo1").extgrid(opt1);
+	var opt2 = getCfg2();
+	grid2 = $("#demo2").extgrid(opt2);
+}
+$(function(){
+	create();
+});		</pre>
+	</div>
+</div>
+<script type="text/javascript">
+var data = [
+	{id:1,title:'test1',content:'内容1',path:'base1.html'},
+	{id:2,title:'test2',content:'内容2',path:'base2.html'},
+	{id:3,title:'test3',content:'内容3',path:'base3.html'},
+	{id:4,title:'test4',content:'内容4',path:'base4.html'},
+	{id:5,title:'test5',content:'内容5',path:'base5.html'},
+	{id:6,title:'test6',content:'内容6',path:'base6.html'},
+	{id:7,title:'test7',content:'内容7',path:'base7.html'}
+];
+
+//Cfg建议写道函数里
+function getCfg(){
+	var columns = [
+		{field:'id',title:'ID',width:30,fitColumn:false},
+		{field:'title',title:'标题',width:60},
+		{field:'content',title:'内容',width:200},
+		{field:'path',title:'文件名',width:100}
+	];
+	var options = {
+		title : 'gird editColumn',
+		data : data,
+		columns : columns,
+		editColumn :　[ {text:'编辑',callBack:function(t,rowId,field,rowData){alert(rowId);}},"|",{text:"删除"},"|","我不是按钮" ]
+	}
+	return options;
+}
+function getCfg2(){
+	var columns = [
+		{field:'ed'},
+		{field:'id',title:'ID',width:30,fitColumn:false},
+		{field:'title',title:'标题',width:60},
+		{field:'content',title:'内容',width:200},
+		{field:'path',title:'文件名',width:100}
+		
+	];
+	var options = {
+		title : 'gird editColumn自定义显示位置',
+		data : data,
+		columns : columns,
+		editColumn :　[ {text:'编辑'},"|",{text:"删除"},"|","我不是按钮" ]
+	}
+	return options;
+}
+var grid1,grid2;
+function create(){
+	var opt1 = getCfg();
+	grid1 = $("#demo1").extgrid(opt1);
+	var opt2 = getCfg2();
+	grid2 = $("#demo2").extgrid(opt2);
+}
+$(function(){
+	create();
+});
+$(window).ready(function(){
+	dp.SyntaxHighlighter.ClipboardSwf = 'js/clipboard.swf';
+	dp.SyntaxHighlighter.HighlightAll('code');
+});
+</script>
+</body>
+</html>

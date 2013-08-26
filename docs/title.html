@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+<title>title</title>
+<link type="text/css" rel="stylesheet" rev="stylesheet" href="style/style.css" media="all"></link>
+<link type="text/css" rel="stylesheet" rev="stylesheet" href="style/SyntaxHighlighter.css" media="all"></link>
+<link type="text/css" rel="stylesheet" rev="stylesheet" href="style/grid.debug.css" media="all"></link>
+<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="js/template.js"></script>
+<script type="text/javascript" src="js/jquery.extgrid.js"></script>
+<script type="text/javascript" src="js/SyntaxHighlighter.js"></script>
+</head>
+<body>
+<div id="content">
+	<h2>Grid标题:title</h2>
+	<div class="delta">
+		<strong>默认为空，为空不显示</strong>
+	</div>
+	<div id="demo" style="margin-top:5px;">
+		<div id="demo1" class="demo" style="height:150px;"></div>
+		<div style="height:10px;"></div>
+		<div id="demo2" class="demo" style="height:150px;"></div>
+	</div>
+	<div class="delta dotte">
+		<strong>HTML:</strong>
+<!--		<textarea style="width:100%; height:80px; display:block; border:1px solid; border-color:#FFFFFF; overflow:hidden; background:#FFFFFF" readonly="readonly">-->
+		<pre name="code" class="html">
+<div id="demo1" class="demo" style="height:150px;"></div>
+<div style="height:10px;"></div>
+<div id="demo2" class="demo" style="height:150px;"></div>
+		</pre>
+		<!--</textarea>-->
+		<strong>Script:</strong>
+		<pre name="code" class="javascript">
+var data = [
+	{id:1,title:'test1',content:'内容1',path:'base1.html'},
+	{id:2,title:'test2',content:'内容2',path:'base2.html'},
+	{id:3,title:'test3',content:'内容3',path:'base3.html'},
+	{id:4,title:'test4',content:'内容4',path:'base4.html'}
+];
+//cfg 建议写在函数里
+function getCfg(){
+	var columns = [
+		{field:'id',title:'ID',width:30,fitColumn:false},
+		{field:'title',title:'标题',width:60},
+		{field:'content',title:'内容',width:200},
+		{field:'path',title:'文件名',width:100}
+	];
+	var options = {
+		title : 'gird标题测试',
+		data : data,
+		columns : columns
+	}
+	return options;
+}
+
+var grid1,grid2;
+function create(){
+	var opt1 = getCfg();
+	grid1 = $("#demo1").extgrid(opt1);
+	var opt2 = getCfg();
+	opt2.title="";
+	grid2 = $("#demo2").extgrid(opt2);
+}
+$(function(){
+	create();
+});
+		</pre>
+	</div>
+</div>
+<script type="text/javascript">
+var data = [
+	{id:1,title:'test1',content:'内容1',path:'base1.html'},
+	{id:2,title:'test2',content:'内容2',path:'base2.html'},
+	{id:3,title:'test3',content:'内容3',path:'base3.html'},
+	{id:4,title:'test4',content:'内容4',path:'base4.html'}
+];
+
+
+function getCfg(){
+	var columns = [
+		{field:'id',title:'ID',width:30,fitColumn:false},
+		{field:'title',title:'标题',width:60},
+		{field:'content',title:'内容',width:200},
+		{field:'path',title:'文件名',width:100}
+	];
+	var options = {
+		title : 'gird标题测试',
+		data : data,
+		columns : columns
+	}
+	return options;
+}
+var grid1,grid2;
+function create(){
+	var opt1 = getCfg();
+	grid1 = $("#demo1").extgrid(opt1);
+	var opt2 = getCfg();
+	opt2.title="";
+	grid2 = $("#demo2").extgrid(opt2);
+}
+$(function(){
+	create();
+});
+$(window).ready(function(){
+	dp.SyntaxHighlighter.ClipboardSwf = 'js/clipboard.swf';
+	dp.SyntaxHighlighter.HighlightAll('code');
+});
+</script>
+</body>
+</html>

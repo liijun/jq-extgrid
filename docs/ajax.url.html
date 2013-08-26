@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+<title>url</title>
+<link type="text/css" rel="stylesheet" rev="stylesheet" href="style/style.css" media="all"></link>
+<link type="text/css" rel="stylesheet" rev="stylesheet" href="style/SyntaxHighlighter.css" media="all"></link>
+<link type="text/css" rel="stylesheet" rev="stylesheet" href="style/grid.debug.css" media="all"></link>
+<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="js/template.js"></script>
+<script type="text/javascript" src="js/jquery.extgrid.js"></script>
+<script type="text/javascript" src="js/SyntaxHighlighter.js"></script>
+</head>
+<body>
+<style type="text/css">
+.grid-border-x { border:2px solid red;}
+.grid-border-x2 { border:2px solid red; border-left:none; border-right:none;}
+</style>
+<div id="content">
+	<h2>Grid 远程数据:url</h2>
+	<div class="delta">
+		<strong>默认为为空 不开启 |  url</strong><br>
+		关联属性:<br>
+			1.loadMsg : '加载中,请稍后...'<br>
+			2.dataType : 'json' 目前只支持返回json格式数据 可通过init初始化时绑定自定义解析函数并return false;<br>
+			3.method : 'post'<br />
+			eg: 返回的hmtl格式的文本
+			<pre name="code" class="javascript">
+			init:function(){
+				var grid = this;
+				grid.bind("onLoadSuccess",function(data,successBack){
+					var opt = grid.configs;
+					...//对data解析
+					opt.data = data.rows;
+					opt.total = data.total;
+					return false;//不能丢
+				});
+			}
+			</pre>
+			3.queryParams : {}<br>
+		<br><strong>
+		</strong>
+	</div>
+	<div id="demo" style="margin-top:5px;">
+		<div id="demo1" class="demo" style="height:300px;"></div>
+	</div>
+	<div class="delta dotte">
+		<strong>PHP返回数据:</strong>
+		<pre name="code" class="javascript">
+{"total":60,"rows":[
+	{"id":1,"title":"产品","content":"点击我显示详细信息","path":"base.html"},
+	{"id":2,"title":"产品","content":"点击我显示详细信息","path":"base.html","_delta":"#delta-test"},
+	{"id":3,"title":"产品","content":"点击我显示详细信息","path":"base.html"},
+	{"id":4,"title":"产品","content":"点击我显示详细信息","path":"base.html"},
+	{"id":5,"title":"产品","content":"点击我显示详细信息","path":"base.html"},
+	{"id":6,"title":"产品","content":"点击我显示详细信息","path":"base.html"},
+	{"id":7,"title":"产品","content":"点击我显示详细信息","path":"base.html"},
+	{"id":8,"title":"产品","content":"点击我显示详细信息","path":"base.html"},
+	{"id":9,"title":"产品","content":"点击我显示详细信息","path":"base.html"},
+	{"id":1,"title":"产品","content":"点击我显示详细信息","path":"base.html"}
+]}
+
+		</pre>
+		<strong>HTML:</strong>
+		<pre name="code" class="html">
+<div id="demo1" class="demo" style="height:150px;"></div>
+		</pre>
+		<strong>Script:</strong>
+		<pre name="code" class="javascript">
+function getCfg(){
+	var columns = [
+		{field:'id',title:'ID',width:30,sortable:true},
+		{field:'title',title:'标题',width:60},
+		{field:'content',title:'内容',width:200},
+		{field:'path',title:'文件名',width:100}
+	];
+	var options = {
+		title : 'url获取',
+		url : 'datagrid_data.json',
+		columns : columns,
+		pagination : true
+	}
+	return options;
+}
+var grid1;
+function create(){
+	var opt1 = getCfg();
+	grid1 = $("#demo1").extgrid(opt1);
+}
+$(function(){
+	create();
+});
+		</pre>
+	</div>
+</div>
+<script type="text/javascript">
+function getCfg(){
+	var columns = [
+		{field:'id',title:'ID',width:30,sortable:true},
+		{field:'title',title:'标题',width:60},
+		{field:'content',title:'内容',width:200},
+		{field:'path',title:'文件名',width:100}
+	];
+	var options = {
+		title : 'url获取',
+		url : 'datagrid_data.json',
+		columns : columns,
+		pagination : true
+	}
+	return options;
+}
+var grid1;
+function create(){
+	var opt1 = getCfg();
+	grid1 = $("#demo1").extgrid(opt1);
+}
+$(function(){
+	create();
+});
+$(window).ready(function(){
+	dp.SyntaxHighlighter.ClipboardSwf = 'js/clipboard.swf';
+	dp.SyntaxHighlighter.HighlightAll('code');
+});
+</script>
+</body>
+</html>
